@@ -1,6 +1,6 @@
 package com.qa;
 
-public class Pokemon {
+public class Pmon {
 
     private int pokeNo;
     private String name;
@@ -12,7 +12,7 @@ public class Pokemon {
     private String m4;
     private String description;
 
-    public Pokemon(int pokeNo, String name, int level, String nature, String m1, String m2, String m3, String m4, String description) {
+    public Pmon(int pokeNo, String name, int level, String nature, String m1, String m2, String m3, String m4, String description) {
         this.pokeNo = pokeNo;
         this.name = name;
         this.level = level;
