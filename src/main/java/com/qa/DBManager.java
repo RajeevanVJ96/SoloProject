@@ -1,13 +1,9 @@
 package com.qa;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DBManager {
@@ -62,5 +58,18 @@ public class DBManager {
         }
         return st;
     }
+
+    public void viewTeam(int i) throws SQLException {
+        stmt = conn.createStatement();
+        String sql = "SELECT * FROM teams WHERE id = " + i;
+        ResultSet rs = stmt.executeQuery(sql);
+
+    }
+
+    public void createTeam(){}
+
+    public void editTeam(){}
+
+    public void delTeam(){}
 }
 
