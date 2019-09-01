@@ -1,0 +1,16 @@
+Dragon
+Electric
+Fire
+Dark
+Water
+Steel
+Dragon
+Psychic
+Fire
+Psychic
+Grass
+Ghost
+Ice
+Rock
+Ground
+Fairy
