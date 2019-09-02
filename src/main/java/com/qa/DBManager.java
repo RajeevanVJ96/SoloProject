@@ -1,6 +1,7 @@
 package com.qa;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
@@ -31,25 +32,35 @@ public class DBManager {
 
         stmt = setupConn().createStatement();
         stmt.executeUpdate("CREATE TABLE pokemon(name VARCHAR(20) PRIMARY KEY NOT NULL, " +
-                "type VARCHAR(20) NOT NULL, dexno INT NOT NULL)");
+                "type VARCHAR(20) NOT NULL, dexno INT NOT NULL, description VARCHAR(500))");
         stmt.executeUpdate("CREATE TABLE natures(name VARCHAR(20))");
         stmt.executeUpdate("CREATE TABLE moves(name VARCHAR(50))");
+        stmt.executeUpdate("CREATE TABLE types(name VARCHAR(20))");
+
+        readFiles("src\\data\\Pokes.txt", "pokemon");
+        readFiles("src\\data\\moves.txt", "moves");
+        readFiles("src\\data\\types.txt", "types");
+        readFiles("src\\data\\natures.txt", "natures");
+
+    }
+
+    private void readFiles(String s, String name) throws IOException, SQLException {
         FileReader fr =
-                new FileReader("src\\data\\Pokes.txt");
+                new FileReader(s);
 
         BufferedReader br = new BufferedReader(fr);
         String st;
         while ((st = br.readLine()) != null) {
             String[] arr = st.split(",");
-            stmt.executeUpdate(customSQL(arr));
+            stmt.executeUpdate(customSQL(arr, name));
 
 
         }
     }
 
-    private String customSQL(String[] arr) {
+    private String customSQL(String[] arr, String name) {
         StringBuilder sb = new StringBuilder();
-        sb.append("INSERT INTO pokemon VALUES(");
+        sb.append("INSERT INTO " + name +  " VALUES(");
         for(String i: arr){
 
             sb.append("'"+i+"'"+",");
@@ -87,6 +98,7 @@ public class DBManager {
         stmt.executeUpdate("DROP TABLE pokemon");
         stmt.executeUpdate("DROP TABLE natures");
         stmt.executeUpdate("DROP TABLE moves");
+        stmt.executeUpdate("DROP TABLE types");
         System.out.println("Fresh DB available");
 
     }

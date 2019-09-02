@@ -1,12 +1,11 @@
-Garchomp,Dragon,445
-Pikachu,Electric,25
-Charizard,Fire,6
-Darkrai,Dark,491
-Milotic,Water,350
-Metagross,Steel,376
-Salamence,Dragon,373
-Mewtwo,Psychic,150
-Arcanine,Fire,59
-Alakazam,Psychic,65
-Haxorus,Dragon,612
-
+Garchomp,Dragon,445,It looks like a jet plane when it folds up its body and extends its wings.
+Pikachu,Electric,25,When several of these POKÈMON gather their electricity could build and cause lightning storms.
+Charizard,Fire,6,Spits fire that is hot enough to melt boulders. Known to cause forest fires unintentionally.
+Darkrai,Dark,491,It can lull people to sleep and make them dream. It is active during nights of the new moon.
+Milotic,Water,350,Milotic is said to be the most beautiful of all the POKÈMON. It has the power to becalm such emotions as anger and hostility to quell bitter feuding.
+Metagross,Steel,376,Metagross has four brains in total. Its four brains can breeze through difficult calculations faster than a supercomputer. This POKÈMON can float in the air by tucking in its four legs.
+Salamence,Dragon,373,It becomes uncontrollable if it is enraged. It destroys everything with shredding claws and fire.
+Mewtwo,Psychic,150,It was created by a scientist after years of horrific gene splicing and DNA engineering experiments.
+Arcanine,Fire,59,Its magnificent bark conveys a sense of majesty. Anyone hearing it canít help but grovel before it.
+Alakazam,Psychic,65,Its brain can outperform a supercomputer. Its intelligence quotient is said to be 5000.
+Haxorus,Dragon,612,They are kind but can be relentless when defending territory. They challenge foes with tusks that can cut steel.
