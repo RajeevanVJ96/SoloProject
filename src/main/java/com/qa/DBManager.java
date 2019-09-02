@@ -87,11 +87,30 @@ public class DBManager {
 
     }
 
-    public void createTeam(){}
+    /*
+    createTeam - takes in a Roster object to describe the team as well as list of pokemon to be added to the
+    roster. This should be used to create a new table for the roster while calling in values from pokes, Moves, nature
+    and types for info about pokemon
+     */
 
+    public void createTeam(ArrayList<Pokemon> pokes){
+
+    }
+
+    /*
+    editTEam should take in the roster that is being changed as well as the required changes so ALTER TABLE should be used
+    */
     public void editTeam(){}
 
+    /*
+    delTEam should take in the roster that is being deleted as well so DROP TABLE should be used
+    */
     public void delTeam(){}
+
+    /*
+    viewTeam should take in the team to be shown and SELECT all query should be used to return the correct table.
+     */
+    public void viewTeam(){}
 
     public void flush() throws SQLException {
         stmt = setupConn().createStatement();
