@@ -48,7 +48,18 @@ public class DBManager {
     }
 
     private String customSQL(String[] arr) {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        sb.append("INSERT pokemon VALUES(");
+        for(String i: arr){
+            sb.append(i);
+            sb.append(",");
+        }
+
+        sb.append(")");
+        String finish = sb.toString();
+        finish = finish.replaceAll(",$","");
+        System.out.println(finish);
+        return sb.toString();
     }
 
     public ArrayList<String> toString(String[] s){
