@@ -14,10 +14,9 @@ public class App
 
     public static void main( String[] args ) throws SQLException, IOException {
         DBManager dbm = new DBManager();
-        dbm.setupConn();
+        dbm.flush();
         dbm.populateDB();
-        int id = 0;
-        dbm.viewTeam(id);
+
 
 
 

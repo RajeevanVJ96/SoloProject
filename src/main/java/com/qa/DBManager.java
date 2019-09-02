@@ -29,13 +29,13 @@ public class DBManager {
 
     public void populateDB() throws IOException, SQLException {
 
-        stmt = conn.createStatement();
+        stmt = setupConn().createStatement();
         stmt.executeUpdate("CREATE TABLE pokemon(name VARCHAR(20) PRIMARY KEY NOT NULL, " +
                 "type VARCHAR(20) NOT NULL, dexno INT NOT NULL, entry LONGTEXT)");
         stmt.executeUpdate("CREATE TABLE natures(name VARCHAR(20))");
         stmt.executeUpdate("CREATE TABLE moves(name VARCHAR(50))");
         FileReader fr =
-                new FileReader("F:\\SoloProject\\src\\data\\Pokes.txt");
+                new FileReader("src\\data\\Pokes.txt");
 
         BufferedReader br = new BufferedReader(fr);
         String st;
@@ -71,5 +71,14 @@ public class DBManager {
     public void editTeam(){}
 
     public void delTeam(){}
+
+    public void flush() throws SQLException {
+        stmt = setupConn().createStatement();
+        stmt.executeUpdate("DROP TABLE pokemon");
+        stmt.executeUpdate("DROP TABLE natures");
+        stmt.executeUpdate("DROP TABLE moves");
+        System.out.println("Fresh DB available");
+
+    }
 }
 
