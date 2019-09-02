@@ -22,7 +22,7 @@ public class DBManager {
         }
 
         System.out.println("Connecting to database...");
-        Connection conn = DriverManager.getConnection(Constants.JDBC_DRIVER,Constants.USER, Constants.PASS);
+        Connection conn = DriverManager.getConnection(Constants.DB_URL,Constants.USER, Constants.PASS);
         return conn;
 
     }
@@ -30,7 +30,7 @@ public class DBManager {
     public void populateDB() throws IOException, SQLException {
 
         stmt = conn.createStatement();
-        stmt.executeUpdate("CREATE TABLE (name VARCHAR(20) PRIMARY KEY NOT NULL, " +
+        stmt.executeUpdate("CREATE TABLE pokemon(name VARCHAR(20) PRIMARY KEY NOT NULL, " +
                 "type VARCHAR(20) NOT NULL, dexno INT NOT NULL, entry LONGTEXT)");
         stmt.executeUpdate("CREATE TABLE natures(name VARCHAR(20))");
         stmt.executeUpdate("CREATE TABLE moves(name VARCHAR(50))");
