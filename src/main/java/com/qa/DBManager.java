@@ -11,9 +11,9 @@ public class DBManager {
     static Connection conn = null;
     static Statement stmt = null;
 
-    public DBManager() {}
+    DBManager() {}
 
-    public Connection setupConn() throws SQLException {
+    private Connection setupConn() throws SQLException {
 
         try {
             Class.forName(Constants.JDBC_DRIVER);
@@ -27,11 +27,11 @@ public class DBManager {
 
     }
 
-    public void populateDB() throws IOException, SQLException {
+    void populateDB() throws IOException, SQLException {
 
         stmt = setupConn().createStatement();
         stmt.executeUpdate("CREATE TABLE pokemon(name VARCHAR(20) PRIMARY KEY NOT NULL, " +
-                "type VARCHAR(20) NOT NULL, dexno INT NOT NULL, entry LONGTEXT)");
+                "type VARCHAR(20) NOT NULL, dexno INT NOT NULL, desc LONGTEXT)");
         stmt.executeUpdate("CREATE TABLE natures(name VARCHAR(20))");
         stmt.executeUpdate("CREATE TABLE moves(name VARCHAR(50))");
         FileReader fr =
@@ -49,16 +49,15 @@ public class DBManager {
 
     private String customSQL(String[] arr) {
         StringBuilder sb = new StringBuilder();
-        sb.append("INSERT pokemon VALUES(");
+        sb.append("INSERT INTO pokemon VALUES(");
         for(String i: arr){
-            sb.append(i);
-            sb.append(",");
+
+            sb.append("'"+i+"'"+",");
         }
 
+        sb.deleteCharAt(sb.length() - 1);
         sb.append(")");
-        String finish = sb.toString();
-        finish = finish.replaceAll(",$","");
-        System.out.println(finish);
+        System.out.println(sb.toString());
         return sb.toString();
     }
 

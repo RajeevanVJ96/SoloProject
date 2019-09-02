@@ -14,7 +14,7 @@ public class App
 
     public static void main( String[] args ) throws SQLException, IOException {
         DBManager dbm = new DBManager();
-        dbm.flush();
+        //dbm.flush();
         dbm.populateDB();
 
 
