@@ -31,7 +31,7 @@ public class DBManager {
 
         stmt = setupConn().createStatement();
         stmt.executeUpdate("CREATE TABLE pokemon(name VARCHAR(20) PRIMARY KEY NOT NULL, " +
-                "type VARCHAR(20) NOT NULL, dexno INT NOT NULL, desc LONGTEXT)");
+                "type VARCHAR(20) NOT NULL, dexno INT NOT NULL)");
         stmt.executeUpdate("CREATE TABLE natures(name VARCHAR(20))");
         stmt.executeUpdate("CREATE TABLE moves(name VARCHAR(50))");
         FileReader fr =
