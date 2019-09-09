@@ -15,12 +15,12 @@
 
 <body>
     <div class="container">
-        <h1 class="text-center" style="margin:20px;font-size:64px;">Charizard</h1>
+        <h1 id="h1" class="text-center" style="margin:20px;font-size:64px;">Charizard</h1>
     </div>
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6" style="padding:-10px;"><img src="assets/img/6.png" width="400" height="400">
+                <div class="col-md-6" style="padding:-10px;"><img id="imgsrc" src="assets/img/6.png" width="400" height="400">
                     <p style="font-size:24px;width:350px;">Caught back in Fire Red, still going today</p>
                 </div>
                 <div class="col">
@@ -63,10 +63,11 @@
                                 </tr>
                             </tbody>
                         </table>
-                    </div><button class="btn btn-primary" type="button" style="height:38px;margin:47px;width:87px;background-color:rgb(255,0,0);">Delete</button><button class="btn btn-primary" type="button" style="width:87px;margin:47;height:38;">Edit</button></div>
+                    </div><button id="del" class="btn btn-primary" type="button" style="height:38px;margin:47px;width:87px;background-color:rgb(255,0,0);" onclick="handleDelete(this)">Delete</button><button onclick="handleEdit()" class="btn btn-primary" type="button" style="width:87px;margin:47;height:38;" >Edit</button></div>
             </div>
         </div>
     </div>
+    <script src="assets/js/pokeView.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-animation.js"></script>
