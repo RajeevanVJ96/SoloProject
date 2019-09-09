@@ -15,10 +15,11 @@
 </head>
 
 <body style="background-color:rgb(228,82,82);">
-    <h1 class="text-center">Making Changes to Charizard</h1>
+    <h1 id="changes" class="text-center">Making Changes to Charizard</h1>
     <p class="text-center" style="font-size:32px;">Current Moves</p>
     <p class="text-center" style="font-size:22px;">Moves : Fire Blast, Earthquake, Crunch, Dragon Dance</p>
     <div class="container" style="width:1140px;margin-bottom:-51px;margin-top:-69px;">
+        <form onsubmit="return handleThis(this)">
         <div class="table-responsive" style="margin:195px;margin-right:48px;margin-bottom:19px;margin-top:230px;width:1125px;height:366px;margin-left:33px;">
             <table class="table">
                 <thead>
@@ -32,24 +33,27 @@
                     <tr></tr>
                     <tr>
                         <td><strong>Move 1</strong></td>
-                        <td><input type="text" name="m1"></td>
+                        <td><input class="form-control" type="text" name="m1"></td>
                     </tr>
                     <tr>
                         <td><strong>Move 2</strong></td>
-                        <td><input type="text" name="m1"></td>
+                        <td><input class="form-control" type="text" name="m2"></td>
                     </tr>
                     <tr>
                         <td><strong>Move 3</strong></td>
-                        <td><input type="text" name="m1"></td>
+                        <td><input class="form-control" type="text" name="m3"></td>
                     </tr>
                     <tr>
                         <td><strong>Move 4</strong></td>
-                        <td><input type="text" name="m1"></td>
+                        <td><input class="form-control" type="text" name="m4"></td>
                     </tr>
+
                 </tbody>
             </table>
-        </div>
-    </div><button class="btn btn-primary" type="submit" style="background-position:top;margin:88px;margin-left:410px;width:132px;margin-right:101px;">Save changes</button>
+        </div><button class="btn btn-primary" type="submit" style="background-position:top;margin:88px;margin-left:410px;width:132px;margin-right:101px;">Save changes</button>
+        </form>
+    </div>
+    <script src="assets/js/pokeEdit.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-animation.js"></script>
