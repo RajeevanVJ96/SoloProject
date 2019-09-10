@@ -15,3 +15,9 @@ function handleThis(form) {
     window.location = "/SoloProject/index.html?poke="+pokeObj["name"]+"&src="+pokeObj["pid"];
     return false;
 }
+
+function handlePC() {
+
+    window.location = "/SoloProject/viewPC.html"
+
+}
