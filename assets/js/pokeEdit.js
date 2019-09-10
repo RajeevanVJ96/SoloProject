@@ -1,6 +1,6 @@
-const name = localStorage.getItem('name');
+const name = localStorage.getItem("name");
 
-document.getElementById('changes').innerText = "Making changes to " + name;
+document.getElementById("changes").innerText = "Making changes to " + name;
 
 function handleThis(form) {
     const obj = {};
