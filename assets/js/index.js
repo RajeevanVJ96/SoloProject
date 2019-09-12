@@ -7,6 +7,7 @@ if(url.has("slot")){
     const img2r = url.get("img");
     document.getElementById(h2r).innerText="";
     document.getElementById(img2r).src = "#";
+    document.getElementById(h2r+"b")
 }
 
 if(url.has("poke")){

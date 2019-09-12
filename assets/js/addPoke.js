@@ -12,6 +12,12 @@ function handleThis(form) {
     }
 
     console.log(pokeObj);
-    window.location = "/SoloProject/index.html?poke="+pokeObj["name"]+"&src="+pokeObj["pid"]
+    window.location = "/SoloProject/index.html?poke="+pokeObj["name"]+"&src="+pokeObj["pid"];
     return false;
+}
+
+function handlePC() {
+
+    window.location = "/SoloProject/viewPC.html"
+
 }
