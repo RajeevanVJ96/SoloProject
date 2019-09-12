@@ -13,15 +13,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light" >
+    <a class="navbar-brand" href="#">PokeTeam</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="viewPC.html">View All Pokemon</a>
+            </li>
+        </ul>
+    </div>
+    </nav>
+</header>
 <body>
-    <div></div>
-    <div></div>
-    <div class="article-list" style="background-color:#5c4c4c;background-size:contain;background-repeat:no-repeat;">
+<h2 class="text-center" align="center" >Current Roster</h2>
+    <div class="article-list" style="background-size:contain;background-repeat:no-repeat;">
         <div class="container">
-            <div class="intro">
-                <h1 class="text-center">The Team</h1>
-            </div>
             <div class="row articles">
                 <div class="col-lg-4 offset-lg-0" data-bs-hover-animate="bounce">
                     <h1 id="s1" class="text-center">Charizard</h1><img id="s1m" src="assets/img/6.png" width="300" height="300"><button id="s1b" onclick="handleB1(this)" class="btn btn-primary" type="button" data-bs-hover-animate="bounce" style="width:134px;height:38px;margin:2px;padding:6px;margin-bottom:12px;margin-right:1px;margin-left:77px;margin-top:1px;">View</button></div>
@@ -44,6 +57,15 @@
     </div>
     </div>
     </div>
+    <footer class="page-footer font-small bg-dark">
+
+
+        <div class="footer-copyright text-center py-3" style="background-color: white">© 2019 Copyright: PokeTeam
+            <a href="https://mdbootstrap.com/education/bootstrap/"> Anonymous & Co</a>
+        </div>
+
+
+    </footer>
     <script src="assets/js/index.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
