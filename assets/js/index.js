@@ -2,12 +2,9 @@ const req = new XMLHttpRequest();
 
 const url = new URLSearchParams(location.search);
 
-if(url.has("slot")){
-    const h2r = url.get("slot");
-    const img2r = url.get("img");
-    document.getElementById(h2r).innerText="";
-    document.getElementById(img2r).src = "#";
-    document.getElementById(h2r+"b")
+if(url.has("change")){
+    document.getElementById(localStorage.getItem("tag")).innerText=localStorage.getItem("poke");
+    document.getElementById(localStorage.getItem("imgtag")).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+localStorage.getItem("id")+".png";
 }
 
 if(url.has("poke")){
@@ -20,7 +17,7 @@ function handleB1() {
     localStorage.setItem("img", document.getElementById("s1m").getAttribute("src"));
     localStorage.setItem("tag", "s1" );
     localStorage.setItem("imgtag", "s1m" );
-    window.location = "/pokeView.html";
+    window.location = "/SoloProject/pokeView.html";
 }
 
 function handleB2(){
@@ -37,7 +34,7 @@ function handleB3(){
     localStorage.setItem("img", document.getElementById("s3m").getAttribute("src"));
     localStorage.setItem("tag", "s3" );
     localStorage.setItem("imgtag", "s3m" );
-    window.location = "/pokeView.html";
+    window.location = "/SoloProject/pokeView.html";
     return false;
 }
 
@@ -46,7 +43,7 @@ function handleB4() {
     localStorage.setItem("img", document.getElementById("s4m").getAttribute("src"));
     localStorage.setItem("tag", "s4" );
     localStorage.setItem("imgtag", "s4m" );
-    window.location = "/pokeView.html";
+    window.location = "/SoloProject/pokeView.html";
     return false;
 }
 
@@ -55,7 +52,7 @@ function handleB5(){
     localStorage.setItem("img", document.getElementById("s5m").getAttribute("src"));
     localStorage.setItem("tag", "s5" );
     localStorage.setItem("imgtag", "s5m" );
-    window.location = "/pokeView.html";
+    window.location = "/SoloProject/pokeView.html";
     return false;
 }
 
@@ -64,6 +61,6 @@ function handleB6() {
     localStorage.setItem("img", document.getElementById("s6m").getAttribute("src"));
     localStorage.setItem("tag", "s6" );
     localStorage.setItem("imgtag", "s6m" );
-    window.location = "/pokeView.html";
+    window.location = "/SoloProject/pokeView.html";
     return false;
 }

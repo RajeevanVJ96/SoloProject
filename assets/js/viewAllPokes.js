@@ -40,6 +40,8 @@ function addToTeam() {
 
 function viewPoke() {
 
+    window.location = "/SoloProject/index.html?change"
+
 }
 
 function delPoke(){

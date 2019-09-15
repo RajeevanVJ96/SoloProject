@@ -22,7 +22,7 @@ function populate() {
                 document.getElementById("m3").innerText = data[poke]["m3"];
                 document.getElementById("m4").innerText = data[poke]["m4"];
                 document.getElementById("name").innerText = data[poke]["name"];
-                document.getElementById('imgsrc').setAttribute('src', "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+data[poke]["pid"]+".png")
+                document.getElementById('imgsrc').setAttribute('src', "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+inputCheck(data[poke]["pid"])+".png")
             }else{
 
             }
@@ -35,12 +35,24 @@ function populate() {
 
 }
 
+function inputCheck(id) {
+
+    if(id.toString().length == 1 ){
+        return "00"+id;
+    }else if(id.toString().length == 2){
+        return "0"+id;
+    }else{
+        return id;
+    }
+
+}
+
 
 function handleDelete() {
     console.log(currentpoke["id"]);
     let id = currentpoke["id"];
     req.onload = () => {
-        window.location = "/SoloProject/viewPC.html"
+        window.location = "/SoloProject/pokeAdd.html"
     };
     req.open("DELETE", "http://localhost:9000/pokemon/"+id);
     req.setRequestHeader("Content-Type", "application/json");

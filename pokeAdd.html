@@ -22,10 +22,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="/index.html">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/SoloProject/index.html">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/viewPC.html">View All Pokemon</a>
+                <a class="nav-link" href="/SoloProject/viewPC.html">View All Pokemon</a>
             </li>
         </ul>
     </div>
@@ -37,7 +37,7 @@
             <h2 class="text-center" style="font-family: 'Comic Sans MS';f"><br><b>Add a new Pokemon</b></B><br><br></h2><input class="form-control" type="text" name="name" placeholder="Name">
             <div class="form-group"><input class="form-control" type="text" name="pid" placeholder="Pokedex ID"><input class="form-control" type="text" name="m1" placeholder="Move 1"><input class="form-control" type="text" name="m2" placeholder="Move 2">
                 <input class="form-control" type="text" name="m3" placeholder="Move 3"><input class="form-control" type="text" name="m4" placeholder="Move 4"></div>
-            <div class="form-group" style="margin:3px;width:524px;"><button class="btn btn-primary" type="submit" style="margin:-20px;width:149px;">Add to Team</button><button class="btn btn-primary" type="submit" style="margin:30px;width:111px;height:45px;padding:15px;">Add to PC</button></div>
+            <div class="form-group" style="margin:3px;width:524px;"><input class="btn btn-primary" type="submit" style="margin:-20px;width:149px;" value="Add to Team" onclick="setSubmit(this)"></input><input class="btn btn-primary" type="submit" style="margin:30px;width:111px;height:45px;padding:15px;" value="Add to PC" onclick="setSubmit(this)"></input></div>
         </form>
     </div>
     <script src="assets/js/addPoke.js"></script>
