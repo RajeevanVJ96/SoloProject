@@ -13,12 +13,12 @@ console.log(origtag);
 function handleDelete() {
 
     //Delete from db
-    window.location = "/SoloProject/index.html?slot="+origtag+"&img="+origimgt;
+    window.location = "/index.html?slot="+origtag+"&img="+origimgt;
 
 }
 
 function handleEdit() {
-    window.location = "/SoloProject/pokeEdit.html";
+    window.location = "/pokeEdit.html";
     return false;
 }
 
