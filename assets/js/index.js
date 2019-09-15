@@ -31,7 +31,7 @@ function handleB1() {
     localStorage.setItem("img", document.getElementById("s1m").getAttribute("src"));
     localStorage.setItem("tag", "s1" );
     localStorage.setItem("imgtag", "s1m" );
-    window.location = "/SoloProject/pokeView.html";
+    window.location = "/pokeView.html";
 }
 
 function handleB2(){
@@ -39,7 +39,7 @@ function handleB2(){
     localStorage.setItem("img", document.getElementById("s2m").getAttribute("src"));
     localStorage.setItem("tag", "s2" );
     localStorage.setItem("imgtag", "s2m" );
-    window.location = "/SoloProject/pokeView.html";
+    window.location = "/pokeView.html";
     return false;
 }
 
@@ -48,7 +48,7 @@ function handleB3(){
     localStorage.setItem("img", document.getElementById("s3m").getAttribute("src"));
     localStorage.setItem("tag", "s3" );
     localStorage.setItem("imgtag", "s3m" );
-    window.location = "/SoloProject/pokeView.html";
+    window.location = "/pokeView.html";
     return false;
 }
 
@@ -57,7 +57,7 @@ function handleB4() {
     localStorage.setItem("img", document.getElementById("s4m").getAttribute("src"));
     localStorage.setItem("tag", "s4" );
     localStorage.setItem("imgtag", "s4m" );
-    window.location = "/SoloProject/pokeView.html";
+    window.location = "/pokeView.html";
     return false;
 }
 
@@ -66,7 +66,7 @@ function handleB5(){
     localStorage.setItem("img", document.getElementById("s5m").getAttribute("src"));
     localStorage.setItem("tag", "s5" );
     localStorage.setItem("imgtag", "s5m" );
-    window.location = "/SoloProject/pokeView.html";
+    window.location = "/pokeView.html";
     return false;
 }
 
@@ -75,6 +75,6 @@ function handleB6() {
     localStorage.setItem("img", document.getElementById("s6m").getAttribute("src"));
     localStorage.setItem("tag", "s6" );
     localStorage.setItem("imgtag", "s6m" );
-    window.location = "/SoloProject/pokeView.html";
+    window.location = "/pokeView.html";
     return false;
 }
