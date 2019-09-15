@@ -33,17 +33,17 @@
     </nav>
 </header>
 
-<body style="background-color:cornflowerblue">
+<body onload="populate()" style="background-color:cornflowerblue">
     <div class="container">
         <h1 id="name" class="text-center" style="margin:20px;font-size:64px;">Charizard</h1>
     </div>
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-md-6" style="padding:-10px;"><img id="imgsrc" src="assets/img/6.png" width="400" height="400"></div>
+                <div class="col-md-6" style="padding:-10px;"><img id="imgsrc" width="400" height="400"></div>
                 <div class="col">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table id="moves" class="table">
                             <thead>
                                 <tr>
                                     <th>Detail</th>
@@ -56,23 +56,71 @@
                                 <tr></tr>
                                 <tr>
                                     <td><strong>Move 1</strong></td>
-                                    <td>Fire Blast</td>
+                                    <td id="m1">Fire Blast</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Move 2</strong></td>
-                                    <td>Dragon Dance</td>
+                                    <td id="m2">Dragon Dance</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Move 3</strong></td>
-                                    <td>Earthquake</td>
+                                    <td id="m3">Earthquake</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Move 4</strong></td>
-                                    <td>Dragon Claw</td>
+                                    <td id="m4">Dragon Claw</td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div><button onclick="handleDelete()" class="btn btn-primary" type="button" style="height:38px;margin:47px;width:87px;background-color:rgb(255,0,0);">Release</button><button onclick="handleEdit()" class="btn btn-primary" type="button" style="width:87px;margin:47;height:38;">Edit</button></div>
+                    </div><button onclick="handleDelete()" class="btn btn-primary" type="button" style="height:38px;margin:47px;width:87px;background-color:rgb(255,0,0);">Release</button><button class="btn btn-primary"type="button" data-toggle="modal" data-target="#editForm" style="width:87px;margin:47;height:38;">Edit</button></div>
+                <div id="editForm" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content" style="align-content: center">
+                            <div class="modal-header">
+                                <h4 id="mheader" class="modal-title"> Changes to </h4>
+                            </div>
+                            <div class="modal-body">
+                                <form onsubmit="return handleThis(this)">
+                                    <div class="table-responsive" style="margin:195px;margin-right:48px;margin-bottom:19px;margin-top:50px;width:400px;height:320px;margin-left:33px;">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>Key</th>
+                                                <th style="height:15px;">Change</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr>
+                                                <td><strong>Move 1</strong></td>
+                                                <td><input class="form-control" type="text" name="m1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Move 2</strong></td>
+                                                <td><input class="form-control" type="text" name="m2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Move 3</strong></td>
+                                                <td><input class="form-control" type="text" name="m3"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Move 4</strong></td>
+                                                <td><input class="form-control" type="text" name="m4"></td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div><button class="btn btn-primary" type="submit" style="background-position:top;margin:0px;margin-left:170px;width:132px;margin-right:101px;">Save changes</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>

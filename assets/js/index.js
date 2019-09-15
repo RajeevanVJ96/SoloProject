@@ -15,17 +15,6 @@ if(url.has("poke")){
     const newimg = url.get("src");
 }
 
-function setUpViewing(name) {
-    const nameToSend = JSON.parse(name);
-    req.onload = () => {
-
-    };
-    req.open("GET", "");
-    req.setRequestHeader("Content-Type", "application/json");
-    req.send(name)
-
-}
-
 function handleB1() {
     localStorage.setItem("name", document.getElementById("s1").innerText );
     localStorage.setItem("img", document.getElementById("s1m").getAttribute("src"));
@@ -39,7 +28,7 @@ function handleB2(){
     localStorage.setItem("img", document.getElementById("s2m").getAttribute("src"));
     localStorage.setItem("tag", "s2" );
     localStorage.setItem("imgtag", "s2m" );
-    window.location = "/pokeView.html";
+    window.location = "/SoloProject/pokeView.html";
     return false;
 }
 
