@@ -52,7 +52,7 @@ function handleDelete() {
     console.log(currentpoke["id"]);
     let id = currentpoke["id"];
     req.onload = () => {
-        window.location = "/SoloProject/pokeAdd.html"
+        window.location = "/pokeAdd.html"
     };
     req.open("DELETE", "http://localhost:9000/pokemon/"+id);
     req.setRequestHeader("Content-Type", "application/json");
@@ -77,7 +77,7 @@ function handleThis(form){
     currentpoke["m4"] = newObj["m4"];
 
     req.onload = () => {
-        window.location = "/SoloProject/pokeView.html"
+        window.location = "/pokeView.html"
     };
     req.open("PUT", "http://localhost:9000/pokemon/"+currentpoke["id"]);
     req.setRequestHeader("Content-Type", "application/json");

@@ -15,7 +15,7 @@ function handleThis(form) {
        localStorage.setItem("id", pokeObj["pid"]);
        console.log(pokeObj);
        req.onload = () => {
-           window.location = "/SoloProject/index.html?change"
+           window.location = "/index.html?change"
        };
        req.open("POST", "http://localhost:9000/pokemon");
        req.setRequestHeader("Content-Type", "application/json");
@@ -48,6 +48,6 @@ function handlePC() {
 
 
 
-    window.location = "/SoloProject/viewPC.html"
+    window.location = "/viewPC.html"
 
 }

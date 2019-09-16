@@ -22,15 +22,24 @@ function populate(){
 
         for(let i = 0; i < data.length; i++){
             let temps = data[i];
-            let modButton = "<button class='btn btn-primary' onclick='openForm()'>Edit</button>";
-            let viewButton = "<button class='btn btn-primary' onclick='viewPoke()'>View</button>";
-            let delButton = "<button class='btn btn-primary' onclick='delPoke()'>Delete</button>";
-            let addTeam = "<button class='btn btn-primary' onclick='addToTeam()'>Add to Team</button>";
+            let modButton = "<button class='btn btn-primary' type='submit' data-target='#editForm'  data-toggle='modal'>Edit</button>";
+            let viewButton = "<button class='btn btn-primary' onclick='viewPoke(data[i])'>View</button>";
+            let delButton = "<button class='btn btn-primary' onclick='delPoke(data[i])'>Delete</button>";
+            let addTeam = "<button class='btn btn-primary' onclick='addToTeam(data[i])'>Add to Team</button>";
             newRows(tBody,temps["id"],temps["name"],temps["pid"],temps["m1"], temps["m2"], temps["m3"], temps["m4"], modButton, viewButton, delButton, addTeam);
         }
     };
     req.open("GET", apiLink, false);            //api call to get data
     req.send();
+
+}
+
+function populateModal(data){
+
+    document.getElementById('M1').value = data["m1"];
+    document.getElementById('M2').value = data["m2"];
+    document.getElementById('M3').value = data["m3"];
+    document.getElementById('M4').value = data["m4"];
 
 }
 
