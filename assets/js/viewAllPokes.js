@@ -1,5 +1,4 @@
 const req = new XMLHttpRequest()
-
 let data;
 let tBody = document.getElementById("tableBody");
 const apiLink = "http://localhost:9000/pokemon";
@@ -25,7 +24,8 @@ function populate(){
             let delBtn = `<button class='btn btn-primary' onclick='delPoke(${temps['id']})'>Delete</button>`;
             let editBtn = `<button class='btn btn-primary' data-toggle="modal" data-target="#editModal" onclick='editPoke(${temps['id']})'>Edit</button>`;
             let viewBtn = `<button class='btn btn-primary' onclick='viewPoke(${temps['id']})'>View</button>`;
-            newRows(tBody,temps["id"],temps["name"],temps["pid"],temps["m1"], temps["m2"], temps["m3"], temps["m4"], delBtn, editBtn, viewBtn );
+            let addToTeam = `<button class='btn btn-primary' onclick='addToTeam(${temps['id']})'>Add to Team</button>`;
+            newRows(tBody,temps["id"],temps["name"],temps["pid"],temps["m1"], temps["m2"], temps["m3"], temps["m4"], delBtn, editBtn, viewBtn, addToTeam );
         }
     };
     req.open("GET", apiLink, false);
@@ -58,13 +58,22 @@ function editPoke(id) {
 }
 
 
-function addToTeam() {
+function addToTeam(id) {
 
+    for(let i = 0; i < data.length; i++){
+        let temps = data[i];
+        if(temps["id"] == id){
+            localStorage.setItem("poke",temps["name"]);
+            localStorage.setItem("id", temps["pid"]);
+        }}
+
+    window.location = "/index.html?change"
+    return false;
 }
 
 function viewPoke(id) {
 
-    window.location = `/SoloProject/pokeView.html?pid=${id}`
+    window.location = `/pokeView.html?pid=${id}`
 
 }
 

@@ -68,6 +68,14 @@ function inputCheck(id) {
 
 }
 
+function handleSwitch() {
+
+    console.log(origimgt);
+    console.log(origtag);
+    window.location = "/viewPC.html"
+
+}
+
 
 function handleDelete() {
     console.log(currentpoke["id"]);

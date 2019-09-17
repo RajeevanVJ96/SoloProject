@@ -37,6 +37,15 @@ function setSubmit (button)
     submitName = button.value;
 }
 
+function toPC() {
+
+    const origtag = localStorage.getItem("tag").toString();
+    const origimgt = localStorage.getItem("imgtag").toString();
+    console.log(origimgt);
+    console.log(origtag);
+
+}
+
 function handlePC() {
 
     for (let element of form.elements){
