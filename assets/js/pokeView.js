@@ -7,23 +7,29 @@ const req = new XMLHttpRequest();
 const apiLink = "http://localhost:9000/pokemon";
 let currentpoke;
 
-
+const url = new URLSearchParams(location.search);
 console.log(origimgt);
 console.log(origtag);
 
-function populate() {
+function setUp() {
     req.onload = () => {
         data = JSON.parse(req.response);
-        for (let poke in data){
-            if (data[poke]["name"] == name){
-                currentpoke = data[poke];
-                document.getElementById("m1").innerText = data[poke]["m1"];
-                document.getElementById("m2").innerText = data[poke]["m2"];
-                document.getElementById("m3").innerText = data[poke]["m3"];
-                document.getElementById("m4").innerText = data[poke]["m4"];
-                document.getElementById("name").innerText = data[poke]["name"];
-                document.getElementById('imgsrc').setAttribute('src', "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+inputCheck(data[poke]["pid"])+".png")
-            }else{
+        if(url.has("pid")){
+            pop(url.get("pid"))
+        }else{
+            for (let poke in data){
+                if (data[poke]["name"] == name){
+                    currentpoke = data[poke];
+                    document.getElementById("m1").innerText = data[poke]["m1"];
+                    document.getElementById("m2").innerText = data[poke]["m2"];
+                    document.getElementById("m3").innerText = data[poke]["m3"];
+                    document.getElementById("m4").innerText = data[poke]["m4"];
+                    document.getElementById("name").innerText = data[poke]["name"];
+                    document.getElementById('imgsrc').setAttribute('src', "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+inputCheck(data[poke]["pid"])+".png")
+                }else{
+
+        }
+
 
             }
         }
@@ -33,6 +39,21 @@ function populate() {
     req.send();
     return false;
 
+}
+
+function pop(id) {
+    for (let pokemon in data) {
+        if (data[pokemon]["id"] == id) {
+            currentpoke = data[pokemon];
+            document.getElementById("m1").innerText = data[pokemon]["m1"];
+            document.getElementById("m2").innerText = data[pokemon]["m2"];
+            document.getElementById("m3").innerText = data[pokemon]["m3"];
+            document.getElementById("m4").innerText = data[pokemon]["m4"];
+            document.getElementById("name").innerText = data[pokemon]["name"];
+            document.getElementById('imgsrc').setAttribute('src', "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + inputCheck(data[pokemon]["pid"]) + ".png")
+        }
+
+    }
 }
 
 function inputCheck(id) {
@@ -65,6 +86,7 @@ function handleDelete() {
 }
 
 function handleThis(form){
+    document.getElementById("mheader").innerText = currentpoke["name"];
     let newObj = {};
     for (let element of form.elements) {
         if (element.name) {

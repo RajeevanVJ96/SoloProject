@@ -46,34 +46,50 @@
     </table>
 </div>
 
-<button type="button" class="btn btn-primary"  data-whatever="@mdo">Open modal for @mdo</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Making changes to</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Recipient:</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="form-group">
-                        <label for="message-text" class="col-form-label">Message:</label>
-                        <textarea class="form-control" id="message-text"></textarea>
-                    </div>
+                <form onsubmit="return handleThis(this)">
+                    <div class="table-responsive" style="margin:195px;margin-right:48px;margin-bottom:19px;margin-top:50px;width:400px;height:320px;margin-left:33px;">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th style="height:15px;">Change</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr></tr>
+                            <tr></tr>
+                            <tr>
+                                <td><strong>Move 1</strong></td>
+                                <td><input class="form-control" type="text" name="m1"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Move 2</strong></td>
+                                <td><input class="form-control" type="text" name="m2"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Move 3</strong></td>
+                                <td><input class="form-control" type="text" name="m3"></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Move 4</strong></td>
+                                <td><input class="form-control" type="text" name="m4"></td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div><button class="btn btn-primary" type="submit" style="background-position:top;margin:0px;margin-left:170px;width:132px;margin-right:101px;">Save changes</button>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Send message</button>
             </div>
         </div>
     </div>

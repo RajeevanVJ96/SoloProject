@@ -1,4 +1,4 @@
-const req = new XMLHttpRequest()
+const req = new XMLHttpRequest();
 const pokeObj = {};
 let submitName;
 
@@ -23,7 +23,6 @@ function handleThis(form) {
 
    }
    if(submitName == "Add to PC") {
-       console.log(pokeObj);
        req.onload = () => {
        };
        req.open("POST", "http://localhost:9000/pokemon");
@@ -45,8 +44,6 @@ function handlePC() {
             pokeObj[element.name] = element.value;
         }
     }
-
-
 
     window.location = "/viewPC.html"
 

@@ -3,6 +3,7 @@ const req = new XMLHttpRequest()
 let data;
 let tBody = document.getElementById("tableBody");
 const apiLink = "http://localhost:9000/pokemon";
+let currentpoke = {};
 
 function newRows(table) {
     let row = document.createElement("tr");
@@ -17,38 +18,42 @@ function newRows(table) {
 function populate(){
 
     req.onload = () => {
-        console.log(req.response);
-        data = JSON.parse(req.response)
+        data = JSON.parse(req.response);
 
         for(let i = 0; i < data.length; i++){
             let temps = data[i];
-            let delteBtn = `<button class='btn btn-primary' onclick='delPoke(${temps['id']})'>Delete</button>`;
-            let editBtn = `<button class='btn btn-primary' data-toggle="modal" data-target="#exampleModal" onclick='editPoke(${temps['id']})'>Edit</button>`;
-            let viewBtn = `<button class='btn btn-primary' onclick='viewPoke(${temps['id']})'>Edit</button>`;
-            newRows(tBody,temps["id"],temps["name"],temps["pid"],temps["m1"], temps["m2"], temps["m3"], temps["m4"], delteBtn, editBtn, );
+            let delBtn = `<button class='btn btn-primary' onclick='delPoke(${temps['id']})'>Delete</button>`;
+            let editBtn = `<button class='btn btn-primary' data-toggle="modal" data-target="#editModal" onclick='editPoke(${temps['id']})'>Edit</button>`;
+            let viewBtn = `<button class='btn btn-primary' onclick='viewPoke(${temps['id']})'>View</button>`;
+            newRows(tBody,temps["id"],temps["name"],temps["pid"],temps["m1"], temps["m2"], temps["m3"], temps["m4"], delBtn, editBtn, viewBtn );
         }
     };
-    req.open("GET", apiLink, false);            //api call to get data
+    req.open("GET", apiLink, false);
     req.send();
 
 }
 
-function populateModal(data){
-
-    document.getElementById('M1').value = data["m1"];
-    document.getElementById('M2').value = data["m2"];
-    document.getElementById('M3').value = data["m3"];
-    document.getElementById('M4').value = data["m4"];
-
-}
-
 function delPoke(id) {
-
     console.log(id);
+    req.onload = () => {
+        window.location = "/viewPC.html"
+    };
+    req.open("DELETE", "http://localhost:9000/pokemon/"+id);
+    req.setRequestHeader("Content-Type", "application/json");
+    req.send();
+
+
+    return false;
 
 }
 
-function editPoke() {
+function editPoke(id) {
+    for(let i = 0; i < data.length; i++){
+        let temps = data[i];
+        if(temps["id"] == id){
+            document.getElementById("exampleModalLabel").innerText = "Making Changes to " + temps["name"];
+            currentpoke = temps;
+        }}
 
 }
 
@@ -57,38 +62,34 @@ function addToTeam() {
 
 }
 
-function viewPoke() {
+function viewPoke(id) {
 
-    window.location = "/SoloProject/index.html?change"
-
-}
-
-function delPoke(){
+    window.location = `/SoloProject/pokeView.html?pid=${id}`
 
 }
 
-function editForm(form) {
-
-    let formObject = {};
+function handleThis(form){
+    let newObj = {};
     for (let element of form.elements) {
-        if (element.value) {
-            formObject[element.id] = element.value;
+        if (element.name) {
+            newObj[element.name] = element.value;
         }
+    }
+
+    currentpoke["m1"] = newObj["m1"];
+    currentpoke["m2"] = newObj["m2"];
+    currentpoke["m3"] = newObj["m3"];
+    currentpoke["m4"] = newObj["m4"];
+
+    req.onload = () => {
+        window.location = "/viewPC.html"
     };
-
-    console.log(formObject);
-
+    req.open("PUT", "http://localhost:9000/pokemon/"+currentpoke["id"]);
+    req.setRequestHeader("Content-Type", "application/json");
+    req.send(JSON.stringify(currentpoke));
     return false;
 }
 
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
 
-function cForm() {
-    document.getElementById("myForm").style.display = "none";
-}
 
-// let modButton = "<button class='btn btn-primary' type='submit' data-target='#editForm'  data-toggle='modal'>Edit</button>";
-// let viewButton = "<button class='btn btn-primary' onclick='viewPoke(data[i])'>View</button>";
-// let delButton = "<button class='btn btn-primary' onclick='delPoke(data[i])'>Delete</button>";
+
