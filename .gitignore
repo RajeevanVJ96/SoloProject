@@ -1,3 +1,6 @@
+#DIRS
+target
+
 #IDEA
 *.iml
 .idea
