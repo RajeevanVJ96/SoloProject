@@ -22,11 +22,10 @@ function populate(){
 
         for(let i = 0; i < data.length; i++){
             let temps = data[i];
-            let modButton = "<button class='btn btn-primary' type='submit' data-target='#editForm'  data-toggle='modal'>Edit</button>";
-            let viewButton = "<button class='btn btn-primary' onclick='viewPoke(data[i])'>View</button>";
-            let delButton = "<button class='btn btn-primary' onclick='delPoke(data[i])'>Delete</button>";
-            let addTeam = "<button class='btn btn-primary' onclick='addToTeam(data[i])'>Add to Team</button>";
-            newRows(tBody,temps["id"],temps["name"],temps["pid"],temps["m1"], temps["m2"], temps["m3"], temps["m4"], modButton, viewButton, delButton, addTeam);
+            let delteBtn = `<button class='btn btn-primary' onclick='delPoke(${temps['id']})'>Delete</button>`;
+            let editBtn = `<button class='btn btn-primary' data-toggle="modal" data-target="#exampleModal" onclick='editPoke(${temps['id']})'>Edit</button>`;
+            let viewBtn = `<button class='btn btn-primary' onclick='viewPoke(${temps['id']})'>Edit</button>`;
+            newRows(tBody,temps["id"],temps["name"],temps["pid"],temps["m1"], temps["m2"], temps["m3"], temps["m4"], delteBtn, editBtn, );
         }
     };
     req.open("GET", apiLink, false);            //api call to get data
@@ -42,6 +41,17 @@ function populateModal(data){
     document.getElementById('M4').value = data["m4"];
 
 }
+
+function delPoke(id) {
+
+    console.log(id);
+
+}
+
+function editPoke() {
+
+}
+
 
 function addToTeam() {
 
@@ -78,3 +88,7 @@ function openForm() {
 function cForm() {
     document.getElementById("myForm").style.display = "none";
 }
+
+// let modButton = "<button class='btn btn-primary' type='submit' data-target='#editForm'  data-toggle='modal'>Edit</button>";
+// let viewButton = "<button class='btn btn-primary' onclick='viewPoke(data[i])'>View</button>";
+// let delButton = "<button class='btn btn-primary' onclick='delPoke(data[i])'>Delete</button>";
