@@ -26,11 +26,7 @@ function setUp() {
                     document.getElementById("m4").innerText = data[poke]["m4"];
                     document.getElementById("name").innerText = data[poke]["name"];
                     document.getElementById('imgsrc').setAttribute('src', "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+inputCheck(data[poke]["pid"])+".png")
-                }else{
-
-        }
-
-
+                }else{}
             }
         }
 

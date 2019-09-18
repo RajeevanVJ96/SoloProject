@@ -1,4 +1,4 @@
-const req = new XMLHttpRequest()
+const req = new XMLHttpRequest();
 let data;
 let tBody = document.getElementById("tableBody");
 const apiLink = "http://localhost:9000/pokemon";

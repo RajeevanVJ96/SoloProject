@@ -1,16 +1,30 @@
 const req = new XMLHttpRequest();
 
 const url = new URLSearchParams(location.search);
+const apiLink = "http://localhost:9000/pokemon";
 
 if(url.has("change")){
     document.getElementById(localStorage.getItem("tag")).innerText=localStorage.getItem("poke");
     document.getElementById(localStorage.getItem("imgtag")).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+inputCheck(localStorage.getItem("id"))+".png";
 }
 
-let names = [];
-let imgs = [];
-let tags = [];
-let imtag = [];
+let ids = []; //[4,6,8,9,10,11];
+
+window.onload = function() {
+    if(localStorage.getItem("hasRun") === null) {
+        getInitialPoke();
+        let currentpoke;
+        for (id of ids) {
+            currentpoke = getPokemon(id);
+            document.getElementById(`s${ids.indexOf(id) + 1}`).innerText = currentpoke.name;
+            document.getElementById(`s${ids.indexOf(id) + 1}m`).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + inputCheck(currentpoke["pid"]) + ".png";
+            for (let i = 1; i < 7; i++) {
+            }
+        }
+
+        localStorage.setItem("hasRun", true);
+    }
+};
 
 function inputCheck(id) {
 
@@ -24,9 +38,34 @@ function inputCheck(id) {
 
 }
 
-function populate(){
+function getPokemon(id){
 
+    req.onload = () => {
+        data = JSON.parse(req.response);
+        };
+
+    req.open("GET", apiLink+`/${id}`, false);            //api call to get data
+    req.send();
+
+    return data;
 }
+
+function getInitialPoke(){
+
+    req.onload = () => {
+        data = JSON.parse(req.response);
+        console.log(data);
+        for (let i = 0; i < 6; i++){
+            ids.push(data[i]["id"]);
+            console.log(ids);
+        }
+
+    };
+    req.open("GET", apiLink, false);            //api call to get data
+    req.send();
+    return false;
+
+};
 
 function handleB1() {
     localStorage.setItem("name", document.getElementById("s1").innerText );
