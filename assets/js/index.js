@@ -4,13 +4,25 @@ const url = new URLSearchParams(location.search);
 
 if(url.has("change")){
     document.getElementById(localStorage.getItem("tag")).innerText=localStorage.getItem("poke");
-    document.getElementById(localStorage.getItem("imgtag")).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+localStorage.getItem("id")+".png";
+    document.getElementById(localStorage.getItem("imgtag")).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+inputCheck(localStorage.getItem("id"))+".png";
 }
 
 let names = [];
 let imgs = [];
 let tags = [];
 let imtag = [];
+
+function inputCheck(id) {
+
+    if(id.toString().length == 1 ){
+        return "00"+id;
+    }else if(id.toString().length == 2){
+        return "0"+id;
+    }else{
+        return id;
+    }
+
+}
 
 function populate(){
 
