@@ -1,8 +1,8 @@
 const req = new XMLHttpRequest();
 
 const url = new URLSearchParams(location.search);
-const apiLink = "http://localhost:9000/pokemon";
-const teamApiLink = "http://localhost:9000/pokemonteam";
+const apiLink = "http://35.235.50.146:9000/pokemon";
+const teamApiLink = "http://35.235.50.146:9000/pokemonteam";
 localStorage.setItem("total", "6");
 
 if(url.has("change")){

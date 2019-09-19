@@ -4,7 +4,7 @@ const origtag = localStorage.getItem("tag").toString();
 const origimgt = localStorage.getItem("imgtag").toString();
 let data;
 const req = new XMLHttpRequest();
-const apiLink = "http://localhost:9000/pokemon";
+const apiLink = "http://35.235.50.146:9000/pokemon";
 let currentpoke;
 
 const url = new URLSearchParams(location.search);
@@ -89,7 +89,7 @@ function handleThis(form){
     req.onload = () => {
         window.location = "/pokeView.html"
     };
-    req.open("PUT", "http://localhost:9000/pokemon/"+currentpoke["id"]);
+    req.open("PUT", "http://35.235.50.146:9000/pokemon/"+currentpoke["id"]);
     req.setRequestHeader("Content-Type", "application/json");
     req.send(JSON.stringify(currentpoke));
 

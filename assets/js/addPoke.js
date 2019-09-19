@@ -12,7 +12,7 @@ function handleThis(form) {
     req.onload = () => {
         window.location = "/index.html?change"
        };
-    req.open("POST", "http://localhost:9000/pokemon");
+    req.open("POST", "http://35.235.50.146:9000/pokemon");
     req.setRequestHeader("Content-Type", "application/json");
     req.send(JSON.stringify(pokeObj));
 
