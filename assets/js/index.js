@@ -3,6 +3,7 @@ const req = new XMLHttpRequest();
 const url = new URLSearchParams(location.search);
 const apiLink = "http://localhost:9000/pokemon";
 const teamApiLink = "http://localhost:9000/pokemonteam";
+localStorage.setItem("total", "6");
 
 if(url.has("change")){
     document.getElementById(localStorage.getItem("tag")).innerText=localStorage.getItem("poke");
@@ -57,7 +58,6 @@ function getInitialPoke(){
         data = JSON.parse(req.response);
         for (let i = 0; i < 6; i++){
             ids.push(data[0]["pokemon"][i]["id"]);
-            console.log(ids);
         }
 
     };
@@ -70,16 +70,12 @@ function getInitialPoke(){
 function handleB1() {
     localStorage.setItem("name", document.getElementById("s1").innerText );
     localStorage.setItem("img", document.getElementById("s1m").getAttribute("src"));
-    localStorage.setItem("tag", "s1" );
-    localStorage.setItem("imgtag", "s1m" );
     window.location = "/pokeView.html";
 }
 
 function handleB2(){
     localStorage.setItem("name", document.getElementById("s2").innerText );
     localStorage.setItem("img", document.getElementById("s2m").getAttribute("src"));
-    localStorage.setItem("tag", "s2" );
-    localStorage.setItem("imgtag", "s2m" );
     window.location = "/pokeView.html";
     return false;
 }

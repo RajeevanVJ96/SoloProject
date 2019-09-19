@@ -21,7 +21,7 @@ function populate(){
 
         for(let i = 0; i < data.length; i++){
             let temps = data[i];
-            let delBtn = `<button class='btn btn-primary' onclick='delPoke(${temps['id']})'>Delete</button>`;
+            let delBtn = `<button class='btn btn-primary' onclick='delPoke(${temps['id']})'>Release</button>`;
             let editBtn = `<button class='btn btn-primary' data-toggle="modal" data-target="#editModal" onclick='editPoke(${temps['id']})'>Edit</button>`;
             let viewBtn = `<button class='btn btn-primary' onclick='viewPoke(${temps['id']})'>View</button>`;
             let addToTeam = `<button class='btn btn-primary' onclick='addToTeam(${temps['id']})'>Add to Team</button>`;
@@ -60,15 +60,36 @@ function editPoke(id) {
 
 function addToTeam(id) {
 
-    for(let i = 0; i < data.length; i++){
-        let temps = data[i];
-        if(temps["id"] == id){
-            localStorage.setItem("poke",temps["name"]);
-            localStorage.setItem("id", temps["pid"]);
-        }}
+    if(localStorage.getItem("total") == "6"){
+        alert("Your party is full, please deposit first.")
+    }else{
+        req.onload = () =>{
+            localStorage.setItem("total", "6");
+            window.location = "/index.html";
+        };
+        req.open("PUT", "http://localhost:9000/pokemonteam/1/"+getPokeByName()+"/"+id);
+        req.setRequestHeader("Content-Type", "application/json");
+        req.send();
 
-    window.location = "/index.html?change"
-    return false;
+
+        return false;
+    }
+
+
+}
+
+function getPokeByName() {
+
+    const name = localStorage.getItem("name");
+    let id;
+    for(let i = 0; i < data.length; i++) {
+        let temps = data[i];
+        if(temps["name"] == name){
+            id = temps["id"];
+        }
+    }
+    return id;
+
 }
 
 function viewPoke(id) {

@@ -68,24 +68,8 @@ function handleSwitch() {
 
     console.log(origimgt);
     console.log(origtag);
+    localStorage.setItem("total", "5");
     window.location = "/viewPC.html"
-
-}
-
-
-function handleDelete() {
-    console.log(currentpoke["id"]);
-    let id = currentpoke["id"];
-    req.onload = () => {
-        window.location = "/pokeAdd.html"
-    };
-    req.open("DELETE", "http://localhost:9000/pokemon/"+id);
-    req.setRequestHeader("Content-Type", "application/json");
-    req.send();
-
-
-    return false;
-
 
 }
 
