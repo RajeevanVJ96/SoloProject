@@ -2,6 +2,7 @@ const req = new XMLHttpRequest();
 
 const url = new URLSearchParams(location.search);
 const apiLink = "http://localhost:9000/pokemon";
+const teamApiLink = "http://localhost:9000/pokemonteam";
 
 if(url.has("change")){
     document.getElementById(localStorage.getItem("tag")).innerText=localStorage.getItem("poke");
@@ -11,7 +12,7 @@ if(url.has("change")){
 let ids = []; //[4,6,8,9,10,11];
 
 window.onload = function() {
-    if(localStorage.getItem("hasRun") === null) {
+  //  if(localStorage.getItem("hasRun") === null) {
         getInitialPoke();
         let currentpoke;
         for (id of ids) {
@@ -23,7 +24,7 @@ window.onload = function() {
         }
 
         localStorage.setItem("hasRun", true);
-    }
+
 };
 
 function inputCheck(id) {
@@ -54,14 +55,13 @@ function getInitialPoke(){
 
     req.onload = () => {
         data = JSON.parse(req.response);
-        console.log(data);
         for (let i = 0; i < 6; i++){
-            ids.push(data[i]["id"]);
+            ids.push(data[0]["pokemon"][i]["id"]);
             console.log(ids);
         }
 
     };
-    req.open("GET", apiLink, false);            //api call to get data
+    req.open("GET", teamApiLink, false);            //api call to get data
     req.send();
     return false;
 
