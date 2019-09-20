@@ -10,10 +10,9 @@ if(url.has("change")){
     document.getElementById(localStorage.getItem("imgtag")).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+inputCheck(localStorage.getItem("id"))+".png";
 }
 
-let ids = []; //[4,6,8,9,10,11];
+let ids = [];
 
 window.onload = function() {
-  //  if(localStorage.getItem("hasRun") === null) {
         getInitialPoke();
         let currentpoke;
         for (id of ids) {
@@ -61,7 +60,7 @@ function getInitialPoke(){
         }
 
     };
-    req.open("GET", teamApiLink, false);            //api call to get data
+    req.open("GET", teamApiLink, false);
     req.send();
     return false;
 

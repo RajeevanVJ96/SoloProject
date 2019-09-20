@@ -4,6 +4,13 @@ let tBody = document.getElementById("tableBody");
 const apiLink = "http://35.235.50.146:9000/pokemon";
 let currentpoke = {};
 
+
+/*
+This method creates each row in the table where it takes in the id of the table that the rows should be added to and uses the arguments structure to loop through all the other args
+that were passed in. For each arguments a new cell is created and the value of each cell is populated by the argument itself and the cell is added to the current row. And finally the row
+is appended to the table.
+ */
+
 function newRows(table) {
     let row = document.createElement("tr");
     for (let i = 1; i < arguments.length; i++){
@@ -13,6 +20,12 @@ function newRows(table) {
     }
     table.append(row);
 }
+
+/*
+This method is called on onload to populate the table with all the different pokemon entries. This is done by using a GET request to the API that returns the entire list of pokemon
+and then for each pokemon object, 4 buttons are created with 3 being the RUD of the CRUD while the last is used for adding the pokemon to the team. Then these buttons along with each
+member of the pokemon object are passed in as parameters to the function above to create new rows.
+ */
 
 function populate(){
 
@@ -33,6 +46,12 @@ function populate(){
 
 }
 
+/*
+This method is called for every delete button pressed with the parameter id corresponding to the row. It simply sends a DELETE request to remove the chosen pokemon from the list of all
+pokemon. It also redirects to the same page to allow users to continue with other work.
+ */
+
+
 function delPoke(id) {
     console.log(id);
     req.onload = () => {
@@ -47,6 +66,10 @@ function delPoke(id) {
 
 }
 
+/*
+This method is called for every edit button pressed with the parameter id corresponding to the row. It is used to set up and populate the modal that will be launched on press.
+ */
+
 function editPoke(id) {
     for(let i = 0; i < data.length; i++){
         let temps = data[i];
@@ -56,6 +79,12 @@ function editPoke(id) {
         }}
 
 }
+
+/*
+This method is called when the add to team button is pressed with the parameter id corresponding to the row. It will check if the pokemon can be added to the team ie the value of total
+is not "6" before replacing the current chosen pokemon with the old pokemon being exchanged. The getPokeByName method is called here to get the id of the pokemon being replaced from the
+index page by using the localstorage key "name".
+ */
 
 
 function addToTeam(id) {
@@ -78,6 +107,10 @@ function addToTeam(id) {
 
 }
 
+/*
+This function get the id of the pokemon using its name.
+ */
+
 function getPokeByName() {
 
     const name = localStorage.getItem("name");
@@ -92,11 +125,19 @@ function getPokeByName() {
 
 }
 
+/*
+This function is used to view the current pokemons details by taking it to the pokeview page.
+ */
+
 function viewPoke(id) {
 
     window.location = `/pokeView.html?pid=${id}`
 
 }
+
+/*
+This function is used to handle the form input from the modal form and uses a put request to replace any changes to the chosen pokemon.
+ */
 
 function handleThis(form){
     let newObj = {};
