@@ -1,7 +1,7 @@
 const req = new XMLHttpRequest();
 let data;
 let tBody = document.getElementById("tableBody");
-const apiLink = "http://localhost:9000/pokemon";
+const apiLink = "http://35.235.50.146:9000/pokemon";
 let currentpoke = {};
 
 function newRows(table) {
@@ -38,7 +38,7 @@ function delPoke(id) {
     req.onload = () => {
         window.location = "/viewPC.html"
     };
-    req.open("DELETE", "http://localhost:9000/pokemon/"+id);
+    req.open("DELETE", "http://35.235.50.146:9000/pokemon/"+id);
     req.setRequestHeader("Content-Type", "application/json");
     req.send();
 
@@ -67,7 +67,7 @@ function addToTeam(id) {
             localStorage.setItem("total", "6");
             window.location = "/index.html";
         };
-        req.open("PUT", "http://localhost:9000/pokemonteam/1/"+getPokeByName()+"/"+id);
+        req.open("PUT", "http://35.235.50.146:9000/pokemonteam/1/"+getPokeByName()+"/"+id);
         req.setRequestHeader("Content-Type", "application/json");
         req.send();
 
@@ -114,7 +114,7 @@ function handleThis(form){
     req.onload = () => {
         window.location = "/viewPC.html"
     };
-    req.open("PUT", "http://localhost:9000/pokemon/"+currentpoke["id"]);
+    req.open("PUT", "http://35.235.50.146:9000/pokemon/"+currentpoke["id"]);
     req.setRequestHeader("Content-Type", "application/json");
     req.send(JSON.stringify(currentpoke));
     return false;
