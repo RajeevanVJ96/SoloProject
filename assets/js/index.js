@@ -5,12 +5,13 @@ const apiLink = "http://35.235.50.146:9000/pokemon";
 const teamApiLink = "http://35.235.50.146:9000/pokemonteam";
 localStorage.setItem("total", "6");
 
-if(url.has("change")){
-    document.getElementById(localStorage.getItem("tag")).innerText=localStorage.getItem("poke");
-    document.getElementById(localStorage.getItem("imgtag")).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/"+inputCheck(localStorage.getItem("id"))+".png";
-}
 
-let ids = [];
+let ids = [];             // array to store all the initial ids of pokemon to be stored on the index page. Pokemon is based on the current team object
+
+/*
+When the page loads, the initalPoke function is ran in order to populate the index page with the current team roster found in the PokeTeam obj. The ids of these pokemon are passed
+into the ids array which is then iterated through. For each ID the getpokemon method is called to get its name and pid so they can be used to populate a section in the index.
+ */
 
 window.onload = function() {
         getInitialPoke();
@@ -19,13 +20,15 @@ window.onload = function() {
             currentpoke = getPokemon(id);
             document.getElementById(`s${ids.indexOf(id) + 1}`).innerText = currentpoke.name;
             document.getElementById(`s${ids.indexOf(id) + 1}m`).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + inputCheck(currentpoke["pid"]) + ".png";
-            for (let i = 1; i < 7; i++) {
-            }
+
         }
 
-        localStorage.setItem("hasRun", true);
 
 };
+
+/*
+This method is similar to the one found in PokeView where it is to allow the displaying of pokemon with PIDs less than 100 where a 0 needs to be concatenated in front of them.
+ */
 
 function inputCheck(id) {
 
@@ -39,6 +42,10 @@ function inputCheck(id) {
 
 }
 
+/*
+Function to get a pokemon by its ID using a get request.
+ */
+
 function getPokemon(id){
 
     req.onload = () => {
@@ -50,6 +57,10 @@ function getPokemon(id){
 
     return data;
 }
+
+/*
+Getting the current team using a GET request, that will populate the index page and adding their ids to the ids array
+ */
 
 function getInitialPoke(){
 
@@ -65,6 +76,11 @@ function getInitialPoke(){
     return false;
 
 };
+
+/*
+These functions are all for each of the buttons that exist underneath each pokemon. The key thing to note is that on click, two variables are created in local storage
+which are used for displaying the pokemon details in the pokeview page.
+ */
 
 function handleB1() {
     localStorage.setItem("name", document.getElementById("s1").innerText );
@@ -82,8 +98,6 @@ function handleB2(){
 function handleB3(){
     localStorage.setItem("name", document.getElementById("s3").innerText );
     localStorage.setItem("img", document.getElementById("s3m").getAttribute("src"));
-    localStorage.setItem("tag", "s3" );
-    localStorage.setItem("imgtag", "s3m" );
     window.location = "/pokeView.html";
     return false;
 }
@@ -91,8 +105,6 @@ function handleB3(){
 function handleB4() {
     localStorage.setItem("name", document.getElementById("s4").innerText);
     localStorage.setItem("img", document.getElementById("s4m").getAttribute("src"));
-    localStorage.setItem("tag", "s4" );
-    localStorage.setItem("imgtag", "s4m" );
     window.location = "/pokeView.html";
     return false;
 }
@@ -100,8 +112,6 @@ function handleB4() {
 function handleB5(){
     localStorage.setItem("name", document.getElementById("s5").innerText );
     localStorage.setItem("img", document.getElementById("s5m").getAttribute("src"));
-    localStorage.setItem("tag", "s5" );
-    localStorage.setItem("imgtag", "s5m" );
     window.location = "/pokeView.html";
     return false;
 }
@@ -109,8 +119,6 @@ function handleB5(){
 function handleB6() {
     localStorage.setItem("name", document.getElementById("s6").innerText);
     localStorage.setItem("img", document.getElementById("s6m").getAttribute("src"));
-    localStorage.setItem("tag", "s6" );
-    localStorage.setItem("imgtag", "s6m" );
     window.location = "/pokeView.html";
     return false;
 }

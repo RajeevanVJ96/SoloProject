@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Your PC</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light" >
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: cornflowerblue" >
         <a class="navbar-brand" href="#">PokeTeam</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -19,12 +20,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="pokeAdd.html">Add Pokemon</a>
                 </li>
+                <li>
+                    <input type="text" id="myInput" onkeyup="tableSearch()" style="margin-left: 80px" placeholder="Search for Pokemon..">
+                </li>
             </ul>
         </div>
     </nav>
 </header>
 <body onload="populate()">
-<div class="table-responsive" style="padding-top:20px;padding-left:10px;padding-right:10px;background-color: cornflowerblue" >
+<div class="table-responsive" style="padding-top:20px;padding-left:10px;padding-right:10px" >
     <table class="table">
         <thead>
         <tr>
@@ -94,7 +98,7 @@
 
 
 </body>
-<footer class="page-footer font-small blue">
+<footer class="page-footer font-small blue" style="background: cornflowerblue">
 
 
     <div class="footer-copyright text-center py-3">© 2019 Copyright: PokeTeam

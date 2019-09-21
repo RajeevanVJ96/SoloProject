@@ -161,6 +161,31 @@ function handleThis(form){
     return false;
 }
 
+/*
+This function is used to search the table of pokemon for a specific pokemon by its name for when the table is too large to display all pokemon.
+Credits to W3Schools for outline of function
+ */
+
+function tableSearch() {
+
+    let input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");                  //input field
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tableBody");                //table to be searched
+    tr = table.getElementsByTagName("tr");                   //each row
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];            //get name cell
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {            //to display or not to display
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+
+}
 
 
 
