@@ -172,8 +172,8 @@ function tableSearch() {
     input = document.getElementById("myInput");                  //input field
     filter = input.value.toUpperCase();
     table = document.getElementById("tableBody");                //table to be searched
-    tr = table.getElementsByTagName("tr");                   //each row
-    for (i = 0; i < tr.length; i++) {
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {                                      //looping through each row
         td = tr[i].getElementsByTagName("td")[1];            //get name cell
         if (td) {
             txtValue = td.textContent || td.innerText;
