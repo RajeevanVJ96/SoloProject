@@ -1,15 +1,17 @@
 const name = localStorage.getItem("name");
 const imgsrc = localStorage.getItem("img");
-const origtag = localStorage.getItem("tag").toString();
-const origimgt = localStorage.getItem("imgtag").toString();
 let data;
 const req = new XMLHttpRequest();
 const apiLink = "http://35.235.50.146:9000/pokemon";
 let currentpoke;
 
 const url = new URLSearchParams(location.search);
-console.log(origimgt);
-console.log(origtag);
+
+/*
+This is used to populate the view page with relevant details of the pokemon chosen to be viewed. This makes a get request to get all the pokemon and filters out the required
+pokemon  using the name passed in through the local storage key "name". It also checks if the url coming in has a pid parameter so that the pid pokemon is viewed instead.
+
+ */
 
 function setUp() {
     req.onload = () => {
@@ -37,6 +39,10 @@ function setUp() {
 
 }
 
+/*
+This method is called if the view pokemon redirect came from the view all pokemon page as opposed to the index page.
+ */
+
 function pop(id) {
     for (let pokemon in data) {
         if (data[pokemon]["id"] == id) {
@@ -52,6 +58,11 @@ function pop(id) {
     }
 }
 
+/*
+This function is used to assist the display of certain pokemon images due to the way PIDs are stored in the database. Any preceding 0s are not stored and this method is used to append
+0s to the beginning of a string based on the number of characters in the PID. The returned ID is then concatenated to the end of the image serving url to get the correct image.
+ */
+
 function inputCheck(id) {
 
     if(id.toString().length == 1 ){
@@ -64,14 +75,21 @@ function inputCheck(id) {
 
 }
 
+/*
+This method is called when users want to exchange a pokemon from the PC.  The total localstorage variable is set to 5 so that a pokemon can be added to the team.
+ */
+
 function handleSwitch() {
 
-    console.log(origimgt);
-    console.log(origtag);
     localStorage.setItem("total", "5");
     window.location = "/viewPC.html"
 
 }
+
+/*
+ Function that handles the information from the edit form modal. Similar to the add poke method but the difference is that the attributes of the current pokemon on screen is changed
+ The currentpoke object is obtained on onload and the changes to it are reflected on the database by using a PUT request to the API.
+ */
 
 function handleThis(form){
     document.getElementById("mheader").innerText = currentpoke["name"];

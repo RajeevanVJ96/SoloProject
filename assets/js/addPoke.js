@@ -1,6 +1,11 @@
 const req = new XMLHttpRequest();
 const pokeObj = {};
-let submitName;
+
+
+/*function is called when the add to PC button is pressed. It takes in the form as the parameter which is looped through to gather the information
+to make the new pokemon object. Once created, a POST request is made to the API to add the JSON stringified object to the database which is sent in the
+body of the request. When a response is returned, the index page is loaded.
+*/
 
 function handleThis(form) {
 
@@ -17,9 +22,4 @@ function handleThis(form) {
     req.send(JSON.stringify(pokeObj));
 
     return false;
-}
-
-function setSubmit (button)
-{
-    submitName = button.value;
 }

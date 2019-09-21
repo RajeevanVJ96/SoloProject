@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Your PC</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light" >
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: cornflowerblue" >
         <a class="navbar-brand" href="#">PokeTeam</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -19,12 +20,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="pokeAdd.html">Add Pokemon</a>
                 </li>
+                <li>
+                    <input type="text" id="myInput" onkeyup="tableSearch()" style="margin-left: 80px" placeholder="Search for Pokemon..">
+                </li>
             </ul>
         </div>
     </nav>
 </header>
 <body onload="populate()">
-<div class="table-responsive" style="padding-top:20px;padding-left:10px;padding-right:10px;background-color: cornflowerblue" >
+<div id="tabres" class="table-responsive" >
     <table class="table">
         <thead>
         <tr>
@@ -54,7 +58,7 @@
             </div>
             <div class="modal-body">
                 <form onsubmit="return handleThis(this)">
-                    <div class="table-responsive" style="margin:195px;margin-right:48px;margin-bottom:19px;margin-top:50px;width:400px;height:320px;margin-left:33px;">
+                    <div id="tableid" class="table-responsive">
                         <table class="table">
                             <thead>
                             <tr>
@@ -84,7 +88,7 @@
 
                             </tbody>
                         </table>
-                    </div><button class="btn btn-primary" type="submit" style="background-position:top;margin:0px;margin-left:170px;width:132px;margin-right:101px;">Save changes</button>
+                    </div><button id="pcsubmit" class="btn btn-primary" type="submit">Save changes</button>
                 </form>
             </div>
             </div>
@@ -94,7 +98,7 @@
 
 
 </body>
-<footer class="page-footer font-small blue">
+<footer class="page-footer font-small blue" style="background: cornflowerblue">
 
 
     <div class="footer-copyright text-center py-3">© 2019 Copyright: PokeTeam
