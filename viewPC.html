@@ -28,7 +28,7 @@
     </nav>
 </header>
 <body onload="populate()">
-<div class="table-responsive" style="padding-top:20px;padding-left:10px;padding-right:10px" >
+<div id="tabres" class="table-responsive" >
     <table class="table">
         <thead>
         <tr>
@@ -58,7 +58,7 @@
             </div>
             <div class="modal-body">
                 <form onsubmit="return handleThis(this)">
-                    <div class="table-responsive" style="margin:195px;margin-right:48px;margin-bottom:19px;margin-top:50px;width:400px;height:320px;margin-left:33px;">
+                    <div id="tableid" class="table-responsive">
                         <table class="table">
                             <thead>
                             <tr>
@@ -88,7 +88,7 @@
 
                             </tbody>
                         </table>
-                    </div><button class="btn btn-primary" type="submit" style="background-position:top;margin:0px;margin-left:170px;width:132px;margin-right:101px;">Save changes</button>
+                    </div><button id="pcsubmit" class="btn btn-primary" type="submit">Save changes</button>
                 </form>
             </div>
             </div>
