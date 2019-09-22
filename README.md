@@ -65,10 +65,8 @@ the quality of the code. The code coverage can be found in [here](Documentation/
 ## Deployment
 ![CI](/Documentation/CI.png)
 
-
 The building and deployment process was automated using Jenkins which is set up to run on Google Cloud Platform virtual machine. Jenkins is scripted to clone down the source git repo every minute while operational and copy the project into external directory to then be hosted by an Apache2 web server also running on the same instance. The API to communicate data between the web pages and the database is controlled by a Spring boot application ran by Maven.
 This is run on a separate instance to allow for easy upgrades and loose coupling. 
-
 <a name="tech"></a>
 ### Technologies Used
 
@@ -79,7 +77,8 @@ This is run on a separate instance to allow for easy upgrades and loose coupling
 *   Apache2 - Deployment
 *   Jenkins - CI Server
 *   Maven - Dependency Management
-*   [Git]<https://github.com/RajeevanVJ96/SoloProject.git> - VCS
+[Git][]
+*   [Git]: <https://github.com/RajeevanVJ96/SoloProject.git> - VCS
 *   [Trello]<https://trello.com/b/DJTCtsWw/team-manager> - Project Tracking
 *   GCP - Live Environment
 
@@ -104,15 +103,15 @@ View All
 ## Future improvements
 
 Regarding the future of the application I hope to:
-*    Add in proper functionality for creating multiple rosters of Pokemon so users can
+*   Add in proper functionality for creating multiple rosters of Pokemon so users can
 show off multiple teams and switch between them at will on the front page. 
 
-*    Add the ability to have an inventory system whereby users can emulate a bag from the games
+*   Add the ability to have an inventory system whereby users can emulate a bag from the games
 and this would contain the various items and their quantities which could be changed at will.
 The design would follow similarly to the existing design of the pokemon and poketeams in that 
 a Bag would have a one to many relationship with a table of items.
 
-*    Add more fields to describe pokemon such as their level, nature, description and personal notes
+*   Add more fields to describe pokemon such as their level, nature, description and personal notes
 that can be set by the user. 
 
 <a name="auth"></a>
@@ -125,6 +124,3 @@ Rajeevan Vijayakumar
 
 *   QA consulting and our fantastic instructors with special thanks to Christopher Perrins
 *   The mad lads from Anonymous and Co and the rest of our fantastic cohort.  
-
-
-
