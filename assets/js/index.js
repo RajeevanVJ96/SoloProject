@@ -4,9 +4,30 @@ const url = new URLSearchParams(location.search);
 const apiLink = "http://35.235.50.146:9000/pokemon";
 const teamApiLink = "http://35.235.50.146:9000/pokemonteam";
 localStorage.setItem("total", "6");
+let data;
 
 
 let ids = [];             // array to store all the initial ids of pokemon to be stored on the index page. Pokemon is based on the current team object
+
+/*
+Getting the current team using a GET request, that will populate the index page and adding their ids to the ids array
+ */
+
+function getInitialPoke(){
+
+    req.onload = () => {
+        data = JSON.parse(req.response);
+        for (let i = 0; i < 6; i++){
+            ids.push(data[0]["pokemon"][i]["id"]);
+        }
+
+    };
+    req.open("GET", teamApiLink, false);
+    req.send();
+    return false;
+
+};
+
 
 /*
 When the page loads, the initalPoke function is ran in order to populate the index page with the current team roster found in the PokeTeam obj. The ids of these pokemon are passed
@@ -15,8 +36,8 @@ into the ids array which is then iterated through. For each ID the getpokemon me
 
 window.onload = function() {
         getInitialPoke();
-        let currentpoke;
-        for (id of ids) {
+        for (let id of ids) {
+            let currentpoke;
             currentpoke = getPokemon(id);
             document.getElementById(`s${ids.indexOf(id) + 1}`).innerText = currentpoke.name;
             document.getElementById(`s${ids.indexOf(id) + 1}m`).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + inputCheck(currentpoke["pid"]) + ".png";
@@ -24,7 +45,7 @@ window.onload = function() {
         }
 
 
-};
+}
 
 /*
 This method is similar to the one found in PokeView where it is to allow the displaying of pokemon with PIDs less than 100 where a 0 needs to be concatenated in front of them.
@@ -32,9 +53,9 @@ This method is similar to the one found in PokeView where it is to allow the dis
 
 function inputCheck(id) {
 
-    if(id.toString().length == 1 ){
+    if(id.toString().length === 1 ){
         return "00"+id;
-    }else if(id.toString().length == 2){
+    }else if(id.toString().length === 2){
         return "0"+id;
     }else{
         return id;
@@ -57,25 +78,6 @@ function getPokemon(id){
 
     return data;
 }
-
-/*
-Getting the current team using a GET request, that will populate the index page and adding their ids to the ids array
- */
-
-function getInitialPoke(){
-
-    req.onload = () => {
-        data = JSON.parse(req.response);
-        for (let i = 0; i < 6; i++){
-            ids.push(data[0]["pokemon"][i]["id"]);
-        }
-
-    };
-    req.open("GET", teamApiLink, false);
-    req.send();
-    return false;
-
-};
 
 /*
 These functions are all for each of the buttons that exist underneath each pokemon. The key thing to note is that on click, two variables are created in local storage

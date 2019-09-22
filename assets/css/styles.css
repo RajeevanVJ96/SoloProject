@@ -14,21 +14,15 @@
 }
 
 #tableid{
-    margin:195px;
-    margin-right:48px;
-    margin-bottom:19px;
-    margin-top:50px;
     width:400px;
     height:320px;
-    margin-left:33px;
+    margin: 50px 48px 19px 33px;
 }
 
 #pcsubmit{
     background-position:top;
-    margin:0px;
-    margin-left:170px;
     width:132px;
-    margin-right:101px;
+    margin: 0px 101px 0px 170px;
 }
 
 #tabres{
@@ -40,12 +34,8 @@
 #s1b{
     width:134px;
     height:38px;
-    margin:2px;
     padding:6px;
-    margin-bottom:12px;
-    margin-right:1px;
-    margin-left:77px;
-    margin-top:1px;
+    margin: 1px 1px 12px 77px;
 }
 
 #s2{
@@ -65,23 +55,15 @@
     line-height:1px;
     letter-spacing:-7px;
     background-repeat:no-repeat;
-    margin:60px;
     font-size:15px;
-    margin-top:65px;
-    margin-right:61px;
-    margin-left:-9px;
-    margin-bottom:-1px;
+    margin: 65px 61px -1px -9px;
 }
 
 #s2b{
     width:134px;
     height:38px;
-    margin:2px;
     padding:6px;
-    margin-bottom:12px;
-    margin-right:1px;
-    margin-left:77px;
-    margin-top:1px;
+    margin: 1px 1px 12px 77px;
 }
 
 #s3{
@@ -93,22 +75,14 @@
 }
 
 #s3m{
-    margin:-14px;
-    margin-top:25px;
-    margin-bottom:17px;
-    margin-right:-1px;
-    margin-left:-6px;
+    margin: 25px -1px 17px -6px;
 }
 
 #s3b{
     width:134px;
     height:38px;
-    margin:2px;
     padding:6px;
-    margin-bottom:12px;
-    margin-right:1px;
-    margin-left:77px;
-    margin-top:1px;
+    margin: 1px 1px 12px 77px;
 }
 
 #s4 #s5 #s6{

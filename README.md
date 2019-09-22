@@ -47,6 +47,7 @@ The ERD above shows the initial four tables that I had hoped the finished applic
 
 <a name="testing"></a>
 ## Testing
+https://app.codacy.com/manual/RajeevanVJ96/pokeTeamApi/dashboard?bid=14198575
 
 <a name="depl"></a>
 ## Deployment
