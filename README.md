@@ -56,16 +56,18 @@ to include more teams is available.
 
 Testing of the project consisted of Mockito for the API, Selenium Tests for the front end website and Codacy was used to check
 the quality of the code. The code coverage can be found in [here](Documentation/Mockito%20test%20coverage.PNG) along with the selenium test report [here](Documentation/report.png). Below are links to the codacy dashboards, repositories of the API and Selenium Tests:
-* Codacy Dashboard for API Review - https://app.codacy.com/manual/RajeevanVJ96/pokeTeamApi/dashboard?bid=14198575
+*   Codacy Dashboard for API Review - <https://app.codacy.com/manual/RajeevanVJ96/pokeTeamApi/dashboard?bid=14198575>
 
-* Github repository for API - https://github.com/RajeevanVJ96/pokeTeamApi
+*   Github repository for API - <https://github.com/RajeevanVJ96/pokeTeamApi>
 
-* Github repository for Selenium Tests - https://github.com/RajeevanVJ96/SeleniumProjectTests
+*   Github repository for Selenium Tests - <https://github.com/RajeevanVJ96/SeleniumProjectTests>
 <a name="depl"></a>
 ## Deployment
+![CI](/Documentation/CI.png)
+
 
 The building and deployment process was automated using Jenkins which is set up to run on Google Cloud Platform virtual machine. Jenkins is scripted to clone down the source git repo every minute while operational and copy the project into external directory to then be hosted by an Apache2 web server also running on the same instance. The API to communicate data between the web pages and the database is controlled by a Spring boot application ran by Maven.
-This is run on a separate instance to allow for easy upgrades and loose coupling.
+This is run on a separate instance to allow for easy upgrades and loose coupling. 
 
 <a name="tech"></a>
 ### Technologies Used
@@ -77,8 +79,8 @@ This is run on a separate instance to allow for easy upgrades and loose coupling
 *   Apache2 - Deployment
 *   Jenkins - CI Server
 *   Maven - Dependency Management
-*   [Git]https://github.com/RajeevanVJ96/SoloProject.git - VCS
-*   [Trello]https://trello.com/b/DJTCtsWw/team-manager - Project Tracking
+*   [Git]<https://github.com/RajeevanVJ96/SoloProject.git> - VCS
+*   [Trello]<https://trello.com/b/DJTCtsWw/team-manager> - Project Tracking
 *   GCP - Live Environment
 
 <a name="FE"></a>
