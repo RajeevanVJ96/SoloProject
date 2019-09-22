@@ -4,16 +4,16 @@ Project completed in relation to the Solo project due Week 7 at QA
 
 ## Index
 [Brief](#brief)
-   * [Solution](#solution)
+* [Solution](#solution)
    
 [Architecture](#architecture)
-   * [Entity Relationship Diagrams](#erd)
+* [Entity Relationship Diagrams](#erd)
 	
 [Testing](#testing)
-   * [Report](#report)
+* [Report](#report)
 
 [Deployment](#depl)
-   * [Technologies Used](#tech)
+* [Technologies Used](#tech)
      
 [Front End Design](#FE)
 
@@ -43,12 +43,13 @@ My project was to create a website to allow a user to display their favourite po
 The ERD above shows the initial four tables that I had hoped the finished application would end up with but as the development progressed, the tables were reduced and less attributes were used in order to reduce the complexity so that a minimal viable product could be produced within the time constraints. However the attributes that were omitted can be added back in later versions of the application with minimal effort.
 
 #### Delivered solution
-![Final ERD](/Documentation/ER Diagram V2.png)
+![Final ERD](/Documentation/ER%20Diagram%20V3.png)
 
 <a name="testing"></a>
 ## Testing
-https://app.codacy.com/manual/RajeevanVJ96/pokeTeamApi/dashboard?bid=14198575
-
+* Codacy Dashboard for API Review - https://app.codacy.com/manual/RajeevanVJ96/pokeTeamApi/dashboard?bid=14198575
+* Github repository for API - https://github.com/RajeevanVJ96/pokeTeamApi
+* Github repository for Selenium Tests - https://github.com/RajeevanVJ96/SeleniumProjectTests
 <a name="depl"></a>
 ## Deployment
 
@@ -57,14 +58,14 @@ The building and deployment process was automated using Jenkins which is set up 
 <a name="tech"></a>
 ### Technologies Used
 
-* H2 Database Engine - Database
-* Java - Logic
-* Apache2 - Deployment
-* Jenkins - CI Server
-* Maven - Dependency Management
-* [Git]https://github.com/RajeevanVJ96/SoloProject.git - VCS
-* [Trello]https://trello.com/b/DJTCtsWw/team-manager - Project Tracking
-* GCP - Live Environment
+*   MySQL Database Engine - Database
+*   Java - Logic
+*   Apache2 - Deployment
+*   Jenkins - CI Server
+*   Maven - Dependency Management
+*   [Git]https://github.com/RajeevanVJ96/SoloProject.git - VCS
+*   [Trello]https://trello.com/b/DJTCtsWw/team-manager - Project Tracking
+*   GCP - Live Environment
 
 <a name="FE"></a>
 ## Front End Design
@@ -85,8 +86,8 @@ Rajeevan Vijayakumar
 <a name="ack"></a>
 ## Acknowledgements
 
-* QA consulting and our fantastic instructors with special thanks to Christopher Perrins
-* The fantastic lads from Anonymous and Co 
+*   QA consulting and our fantastic instructors with special thanks to Christopher Perrins
+*   The fantastic lads from Anonymous and Co 
 
 
 

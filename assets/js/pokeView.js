@@ -37,7 +37,7 @@ function pop(id) {
             document.getElementById("m3").innerText = data[pokemon]["m3"];
             document.getElementById("m4").innerText = data[pokemon]["m4"];
             document.getElementById("name").innerText = data[pokemon]["name"];
-            document.getElementById("imgsrc").setAttribute("src", "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + inputCheck(data[pokemon]["pid"]) + ".png")
+            document.getElementById("imgsrc").setAttribute("src", "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + inputCheck(data[pokemon]["pid"]) + ".png");
         }
 
     }
@@ -105,7 +105,7 @@ function handleThis(form){
     currentpoke["m4"] = newObj["m4"];
 
     req.onload = () => {
-        window.location = "/pokeView.html"
+        window.location = "/pokeView.html";
     };
     req.open("PUT", "http://35.235.50.146:9000/pokemon/"+currentpoke["id"]);
     req.setRequestHeader("Content-Type", "application/json");

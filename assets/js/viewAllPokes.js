@@ -54,7 +54,7 @@ pokemon. It also redirects to the same page to allow users to continue with othe
 
 function delPoke(id) {
     req.onload = () => {
-        window.location = "/viewPC.html"
+        window.location = "/viewPC.html";
     };
     req.open("DELETE", "http://35.235.50.146:9000/pokemon/"+id);
     req.setRequestHeader("Content-Type", "application/json");

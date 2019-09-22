@@ -10,6 +10,39 @@ let data;
 let ids = [];             // array to store all the initial ids of pokemon to be stored on the index page. Pokemon is based on the current team object
 
 /*
+This method is similar to the one found in PokeView where it is to allow the displaying of pokemon with PIDs less than 100 where a 0 needs to be concatenated in front of them.
+ */
+
+function inputCheck(id) {
+
+    if(id.toString().length === 1 ){
+        return "00"+id;
+    }else if(id.toString().length === 2){
+        return "0"+id;
+    }else{
+        return id;
+    }
+
+}
+
+
+/*
+Function to get a pokemon by its ID using a get request.
+ */
+
+function getPokemon(id){
+
+    req.onload = () => {
+        data = JSON.parse(req.response);
+    };
+
+    req.open("GET", apiLink+`/${id}`, false);            //api call to get data
+    req.send();
+
+    return data;
+}
+
+/*
 Getting the current team using a GET request, that will populate the index page and adding their ids to the ids array
  */
 
@@ -26,7 +59,7 @@ function getInitialPoke(){
     req.send();
     return false;
 
-};
+}
 
 
 /*
@@ -43,41 +76,7 @@ window.onload = function() {
             document.getElementById(`s${ids.indexOf(id) + 1}m`).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + inputCheck(currentpoke["pid"]) + ".png";
 
         }
-
-
-}
-
-/*
-This method is similar to the one found in PokeView where it is to allow the displaying of pokemon with PIDs less than 100 where a 0 needs to be concatenated in front of them.
- */
-
-function inputCheck(id) {
-
-    if(id.toString().length === 1 ){
-        return "00"+id;
-    }else if(id.toString().length === 2){
-        return "0"+id;
-    }else{
-        return id;
-    }
-
-}
-
-/*
-Function to get a pokemon by its ID using a get request.
- */
-
-function getPokemon(id){
-
-    req.onload = () => {
-        data = JSON.parse(req.response);
-        };
-
-    req.open("GET", apiLink+`/${id}`, false);            //api call to get data
-    req.send();
-
-    return data;
-}
+};
 
 /*
 These functions are all for each of the buttons that exist underneath each pokemon. The key thing to note is that on click, two variables are created in local storage
