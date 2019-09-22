@@ -40,7 +40,7 @@ in the video games
 <a name="erd"></a>
 ### Entity Relationship Diagrams
 #### Initial plan
-![Initial ERD](/Documentation/ER Diagram V1.png)
+![Initial ERD](/Documentation/ER%20Diagram%20V1.png)
 
 The ERD above shows the initial four tables that I had hoped the finished application would end up with but as the development progressed, the tables were reduced and less attributes were used in order to reduce the complexity so that a minimal viable product could be produced within the time constraints. However the attributes that were omitted can be added back in later versions of the application with minimal effort.
 
@@ -55,7 +55,7 @@ to include more teams is available.
 ## Testing
 
 Testing of the project consisted of Mockito for the API, Selenium Tests for the front end website and Codacy was used to check
-the quality of the code. The code coverage can be found in [here](Documentation/Mockito%20test%20coverage.PNG) along with the selenium test report [here](Documentation/report.html). Below are links to the codacy dashboards, repositories of the API and Selenium Tests:
+the quality of the code. The code coverage can be found in [here](Documentation/Mockito%20test%20coverage.PNG) along with the selenium test report [here](Documentation/report.png). Below are links to the codacy dashboards, repositories of the API and Selenium Tests:
 * Codacy Dashboard for API Review - https://app.codacy.com/manual/RajeevanVJ96/pokeTeamApi/dashboard?bid=14198575
 
 * Github repository for API - https://github.com/RajeevanVJ96/pokeTeamApi
@@ -91,9 +91,9 @@ Making Changes
 
 ### Final Look
 Team page
-![Home page](/Documentation/index.jpg)
+![Home page](/Documentation/index.png)
 View and Editing
-![View page](/Documentation/viewadd.jpg)
+![View page](/Documentation/viewadd.png)
 Adding
 ![add page](/Documentation/add.png)
 View All
