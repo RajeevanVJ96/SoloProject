@@ -4,27 +4,10 @@ const url = new URLSearchParams(location.search);
 const apiLink = "http://35.235.50.146:9000/pokemon";
 const teamApiLink = "http://35.235.50.146:9000/pokemonteam";
 localStorage.setItem("total", "6");
+let data;
 
 
 let ids = [];             // array to store all the initial ids of pokemon to be stored on the index page. Pokemon is based on the current team object
-
-/*
-When the page loads, the initalPoke function is ran in order to populate the index page with the current team roster found in the PokeTeam obj. The ids of these pokemon are passed
-into the ids array which is then iterated through. For each ID the getpokemon method is called to get its name and pid so they can be used to populate a section in the index.
- */
-
-window.onload = function() {
-        getInitialPoke();
-        let currentpoke;
-        for (id of ids) {
-            currentpoke = getPokemon(id);
-            document.getElementById(`s${ids.indexOf(id) + 1}`).innerText = currentpoke.name;
-            document.getElementById(`s${ids.indexOf(id) + 1}m`).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + inputCheck(currentpoke["pid"]) + ".png";
-
-        }
-
-
-};
 
 /*
 This method is similar to the one found in PokeView where it is to allow the displaying of pokemon with PIDs less than 100 where a 0 needs to be concatenated in front of them.
@@ -32,15 +15,16 @@ This method is similar to the one found in PokeView where it is to allow the dis
 
 function inputCheck(id) {
 
-    if(id.toString().length == 1 ){
+    if(id.toString().length === 1 ){
         return "00"+id;
-    }else if(id.toString().length == 2){
+    }else if(id.toString().length === 2){
         return "0"+id;
     }else{
         return id;
     }
 
 }
+
 
 /*
 Function to get a pokemon by its ID using a get request.
@@ -50,7 +34,7 @@ function getPokemon(id){
 
     req.onload = () => {
         data = JSON.parse(req.response);
-        };
+    };
 
     req.open("GET", apiLink+`/${id}`, false);            //api call to get data
     req.send();
@@ -75,6 +59,23 @@ function getInitialPoke(){
     req.send();
     return false;
 
+}
+
+
+/*
+When the page loads, the initalPoke function is ran in order to populate the index page with the current team roster found in the PokeTeam obj. The ids of these pokemon are passed
+into the ids array which is then iterated through. For each ID the getpokemon method is called to get its name and pid so they can be used to populate a section in the index.
+ */
+
+window.onload = function() {
+        getInitialPoke();
+        for (let id of ids) {
+            let currentpoke;
+            currentpoke = getPokemon(id);
+            document.getElementById(`s${ids.indexOf(id) + 1}`).innerText = currentpoke.name;
+            document.getElementById(`s${ids.indexOf(id) + 1}m`).src = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + inputCheck(currentpoke["pid"]) + ".png";
+
+        }
 };
 
 /*
