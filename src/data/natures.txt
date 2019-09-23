@@ -1,7 +1,0 @@
-Adamant
-Jolly
-Hasty
-Modest
-Timid
-Lax
-Quirky
