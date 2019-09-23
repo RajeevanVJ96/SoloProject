@@ -36,7 +36,7 @@ function populate(){
             let temps = data[i];
             let delBtn = `<button class="btn btn-primary" onclick="delPoke(${temps["id"]})">Release</button>`;
             let editBtn = `<button class="btn btn-primary" data-toggle="modal" data-target="#editModal" onclick="editPoke(${temps["id"]})">Edit</button>`;
-            let viewBtn = `<button class="btn btn-primary" onclick="viewPoke(${temps["id"]})">View</button>`;
+            let viewBtn = `<button class="btn btn-primary" onclick="viewPoke(${temps["pid"]})">View</button>`;
             let addToTeam = `<button class="btn btn-primary" onclick="addToTeam(${temps["id"]})">Add to Team</button>`;
             newRows(tBody,temps["id"],temps["name"],temps["pid"],temps["m1"], temps["m2"], temps["m3"], temps["m4"], delBtn, editBtn, viewBtn, addToTeam );
         }
@@ -72,7 +72,7 @@ This method is called for every edit button pressed with the parameter id corres
 function editPoke(id) {
     for(let i = 0; i < data.length; i++){
         let temps = data[i];
-        if(temps["id"] === id){
+        if(temps["id"] == id){
             document.getElementById("exampleModalLabel").innerText = "Making Changes to " + temps["name"];
             currentpoke = temps;
         }}
@@ -89,7 +89,7 @@ function getPokeByName() {
     let id;
     for(let i = 0; i < data.length; i++) {
         let temps = data[i];
-        if(temps["name"] === name){
+        if(temps["name"] == name){
             id = temps["id"];
         }
     }
