@@ -32,8 +32,8 @@ The brief was to created a object oriented web application that covers all the c
 ### Solution
 
 My project was to create a website to allow a user to display their favourite pokemon in a team format. The application will allow users to add/remove their own pokemon to the team with various attributes. Each pokemon can also have its attributes edited.
-THe application will also allow users to have back up storage of pokemon that they can switch in and out at will, essentially emulating a trainer's interaction
-in the video games
+The application will also allow users to have a back up storage of pokemon that they can switch in and out at will, essentially emulating a trainer's interaction
+in the video games.
 
 <a name="architecture"></a>
 ## Architecture
@@ -77,7 +77,6 @@ This is run on a separate instance to allow for easy upgrades and loose coupling
 *   Apache2 - Deployment
 *   Jenkins - CI Server
 *   Maven - Dependency Management
-[Git][]
 *   [Git]: <https://github.com/RajeevanVJ96/SoloProject.git> - VCS
 *   [Trello]<https://trello.com/b/DJTCtsWw/team-manager> - Project Tracking
 *   GCP - Live Environment
