@@ -16,7 +16,7 @@ function newRows(table) {
     for (let i = 1; i < arguments.length; i++){
         let cell = document.createElement("td");
         cell.innerHTML = arguments[i];
-        row.append(cell)
+        row.append(cell);
     }
     table.append(row);
 }
@@ -34,10 +34,10 @@ function populate(){
 
         for(let i = 0; i < data.length; i++){
             let temps = data[i];
-            let delBtn = `<button class='btn btn-primary' onclick='delPoke(${temps['id']})'>Release</button>`;
-            let editBtn = `<button class='btn btn-primary' data-toggle="modal" data-target="#editModal" onclick='editPoke(${temps['id']})'>Edit</button>`;
-            let viewBtn = `<button class='btn btn-primary' onclick='viewPoke(${temps['id']})'>View</button>`;
-            let addToTeam = `<button class='btn btn-primary' onclick='addToTeam(${temps['id']})'>Add to Team</button>`;
+            let delBtn = `<button class="btn btn-primary" onclick="delPoke(${temps["id"]})">Release</button>`;
+            let editBtn = `<button class="btn btn-primary" data-toggle="modal" data-target="#editModal" onclick="editPoke(${temps["id"]})">Edit</button>`;
+            let viewBtn = `<button class="btn btn-primary" onclick="viewPoke(${temps["id"]})">View</button>`;
+            let addToTeam = `<button class="btn btn-primary" onclick="addToTeam(${temps["id"]})">Add to Team</button>`;
             newRows(tBody,temps["id"],temps["name"],temps["pid"],temps["m1"], temps["m2"], temps["m3"], temps["m4"], delBtn, editBtn, viewBtn, addToTeam );
         }
     };
@@ -53,9 +53,8 @@ pokemon. It also redirects to the same page to allow users to continue with othe
 
 
 function delPoke(id) {
-    console.log(id);
     req.onload = () => {
-        window.location = "/viewPC.html"
+        window.location = "/viewPC.html";
     };
     req.open("DELETE", "http://35.235.50.146:9000/pokemon/"+id);
     req.setRequestHeader("Content-Type", "application/json");
@@ -73,10 +72,28 @@ This method is called for every edit button pressed with the parameter id corres
 function editPoke(id) {
     for(let i = 0; i < data.length; i++){
         let temps = data[i];
-        if(temps["id"] == id){
+        if(temps["id"] === id){
             document.getElementById("exampleModalLabel").innerText = "Making Changes to " + temps["name"];
             currentpoke = temps;
         }}
+
+}
+
+/*
+This function get the id of the pokemon using its name.
+ */
+
+function getPokeByName() {
+
+    const name = localStorage.getItem("name");
+    let id;
+    for(let i = 0; i < data.length; i++) {
+        let temps = data[i];
+        if(temps["name"] === name){
+            id = temps["id"];
+        }
+    }
+    return id;
 
 }
 
@@ -89,10 +106,10 @@ index page by using the localstorage key "name".
 
 function addToTeam(id) {
 
-    if(localStorage.getItem("total") == "6"){
-        alert("Your party is full, please deposit first.")
+    if(localStorage.getItem("total") === "6"){
+        alert("Your party is full, please exchange a pokemon from your team.");
     }else{
-        req.onload = () =>{
+        req.onload = () => {
             localStorage.setItem("total", "6");
             window.location = "/index.html";
         };
@@ -108,30 +125,12 @@ function addToTeam(id) {
 }
 
 /*
-This function get the id of the pokemon using its name.
- */
-
-function getPokeByName() {
-
-    const name = localStorage.getItem("name");
-    let id;
-    for(let i = 0; i < data.length; i++) {
-        let temps = data[i];
-        if(temps["name"] == name){
-            id = temps["id"];
-        }
-    }
-    return id;
-
-}
-
-/*
 This function is used to view the current pokemons details by taking it to the pokeview page.
  */
 
 function viewPoke(id) {
 
-    window.location = `/pokeView.html?pid=${id}`
+    window.location = `/pokeView.html?pid=${id}`;
 
 }
 
@@ -153,7 +152,7 @@ function handleThis(form){
     currentpoke["m4"] = newObj["m4"];
 
     req.onload = () => {
-        window.location = "/viewPC.html"
+        window.location = "/viewPC.html";
     };
     req.open("PUT", "http://35.235.50.146:9000/pokemon/"+currentpoke["id"]);
     req.setRequestHeader("Content-Type", "application/json");
