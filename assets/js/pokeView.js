@@ -25,25 +25,6 @@ function inputCheck(id) {
 }
 
 /*
-This method is called if the view pokemon redirect came from the view all pokemon page as opposed to the index page.
- */
-
-function pop(id) {
-    for (let pokemon in data) {
-        if (data[pokemon]["id"] === id) {
-            currentpoke = data[pokemon];
-            document.getElementById("m1").innerText = data[pokemon]["m1"];
-            document.getElementById("m2").innerText = data[pokemon]["m2"];
-            document.getElementById("m3").innerText = data[pokemon]["m3"];
-            document.getElementById("m4").innerText = data[pokemon]["m4"];
-            document.getElementById("name").innerText = data[pokemon]["name"];
-            document.getElementById("imgsrc").setAttribute("src", "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + inputCheck(data[pokemon]["pid"]) + ".png");
-        }
-
-    }
-}
-
-/*
 This is used to populate the view page with relevant details of the pokemon chosen to be viewed. This makes a get request to get all the pokemon and filters out the required
 pokemon  using the name passed in through the local storage key "name". It also checks if the url coming in has a pid parameter so that the pid pokemon is viewed instead.
 
@@ -74,6 +55,26 @@ function setUp() {
     return false;
 
 }
+
+/*
+This method is called if the view pokemon redirect came from the view all pokemon page as opposed to the index page.
+ */
+
+function pop(id) {
+    for (let pokemon in data) {
+        if (data[pokemon]["id"] === id) {
+            currentpoke = data[pokemon];
+            document.getElementById("m1").innerText = data[pokemon]["m1"];
+            document.getElementById("m2").innerText = data[pokemon]["m2"];
+            document.getElementById("m3").innerText = data[pokemon]["m3"];
+            document.getElementById("m4").innerText = data[pokemon]["m4"];
+            document.getElementById("name").innerText = data[pokemon]["name"];
+            document.getElementById("imgsrc").setAttribute("src", "https://assets.pokemon.com/assets/cms2/img/pokedex/full/" + inputCheck(data[pokemon]["pid"]) + ".png");
+        }
+
+    }
+}
+
 
 /*
 This method is called when users want to exchange a pokemon from the PC.  The total localstorage variable is set to 5 so that a pokemon can be added to the team.
