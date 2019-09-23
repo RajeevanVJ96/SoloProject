@@ -55,7 +55,7 @@ to include more teams is available.
 ## Testing
 
 Testing of the project consisted of Mockito for the API, Selenium Tests for the front end website and Codacy was used to check
-the quality of the code. The code coverage can be found in [here](Documentation/Mockito%20test%20coverage.PNG) along with the selenium test report [here](Documentation/report.png). Below are links to the codacy dashboards, repositories of the API and Selenium Tests:
+the quality of the code. The code coverage can be found in [here](Documentation/api%20test%20coverage.PNG) along with the selenium test report [here](Documentation/report.png). Below are links to the codacy dashboards, repositories of the API and Selenium Tests:
 *   Codacy Dashboard for API Review - <https://app.codacy.com/manual/RajeevanVJ96/pokeTeamApi/dashboard?bid=14198575>
 
 *   Github repository for API - <https://github.com/RajeevanVJ96/pokeTeamApi>
@@ -65,7 +65,7 @@ the quality of the code. The code coverage can be found in [here](Documentation/
 ## Deployment
 ![CI](/Documentation/CI.png)
 
-The building and deployment process was automated using Jenkins which is set up to run on Google Cloud Platform virtual machine. Jenkins is scripted to clone down the source git repo every minute while operational and copy the project into external directory to then be hosted by an Apache2 web server also running on the same instance. The API to communicate data between the web pages and the database is controlled by a Spring boot application ran by Maven.
+The building and deployment process was automated using Jenkins which is set up to run on Google Cloud Platform virtual machine. Jenkins is scripted to clone down the developer branch of the source git repo every minute while operational and copy the project into external directory to then be hosted by an Apache2 web server also running on the same instance as shown by [here](Documentation/jenkins%20build%201.PNG) and [here](Documentation/scriptj.PNG). The API to communicate data between the web pages and the database is controlled by a Spring boot application ran by Maven.
 This is run on a separate instance to allow for easy upgrades and loose coupling. 
 <a name="tech"></a>
 ### Technologies Used
