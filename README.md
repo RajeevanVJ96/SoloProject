@@ -58,6 +58,8 @@ Testing of the project consisted of Mockito for the API, Selenium Tests for the 
 the quality of the code. The code coverage can be found in [here](Documentation/api%20test%20coverage.PNG) along with the selenium test report [here](Documentation/report.png). Below are links to the codacy dashboards, repositories of the API and Selenium Tests:
 *   Codacy Dashboard for API Review - <https://app.codacy.com/manual/RajeevanVJ96/pokeTeamApi/dashboard?bid=14198575>
 
+*   Codacy Dashboard for Front End Review - <https://app.codacy.com/manual/RajeevanVJ96/SoloProject/dashboard?bid=14347923>
+
 *   Github repository for API - <https://github.com/RajeevanVJ96/pokeTeamApi>
 
 *   Github repository for Selenium Tests - <https://github.com/RajeevanVJ96/SeleniumProjectTests>
@@ -66,7 +68,7 @@ the quality of the code. The code coverage can be found in [here](Documentation/
 ![CI](/Documentation/CI.png)
 
 The building and deployment process was automated using Jenkins which is set up to run on Google Cloud Platform virtual machine. Jenkins is scripted to clone down the developer branch of the source git repo every minute while operational and copy the project into external directory to then be hosted by an Apache2 web server also running on the same instance as shown by [here](Documentation/jenkins%20build%201.PNG) and [here](Documentation/scriptj.PNG). The API to communicate data between the web pages and the database is controlled by a Spring boot application ran by Maven.
-This is run on a separate instance to allow for easy upgrades and loose coupling. 
+This is run on a separate instance to allow for easy upgrades and loose coupling. Screenshots of the jenkins build can be found [here](Documentation/jenkins%20build%201.PNG) and [here](Documentation/scriptj.PNG). 
 <a name="tech"></a>
 ### Technologies Used
 
