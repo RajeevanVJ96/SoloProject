@@ -10,7 +10,6 @@ Project completed in relation to the Solo project due Week 8 at QA
 * [Entity Relationship Diagrams](#erd)
 	
 [Testing](#testing)
-* [Report](#report)
 
 [Deployment](#depl)
 * [Technologies Used](#tech)
@@ -26,12 +25,12 @@ Project completed in relation to the Solo project due Week 8 at QA
 <a name="brief"></a>
 ## The Brief
 
-The brief was to created a object oriented web application that covers all the core topics and utilises the various tools covered at the Academy in the last 6 weeks.
+The brief was to create an object oriented web application that covers all the core topics and utilises the various tools covered at the Academy in the last 6 weeks.
 
 <a name="solution"></a>
 ### Solution
 
-My project was to create a website to allow a user to display their favourite pokemon in a team format. The application will allow users to add/remove their own pokemon to the team with various attributes. Each pokemon can also have its attributes edited.
+My project was to create a website to allow users to display their favourite pokemon in a team format. The application will allow users to add/remove their own pokemon to the team with various attributes. Each pokemon can also have its attributes edited.
 The application will also allow users to have a back up storage of pokemon that they can switch in and out at will, essentially emulating a trainer's interaction
 in the video games.
 
@@ -55,7 +54,7 @@ to include more teams is available.
 ## Testing
 
 Testing of the project consisted of Mockito for the API, Selenium Tests for the front end website and Codacy was used to check
-the quality of the code. The code coverage can be found in [here](Documentation/api%20test%20coverage.PNG) along with the selenium test report [here](Documentation/report.png). Below are links to the codacy dashboards, repositories of the API and Selenium Tests:
+the quality of the code. The code coverage for the API can be found [here](Documentation/api%20test%20coverage.PNG) along with the selenium test report [here](Documentation/report.png). Below are links to the codacy dashboards, repositories of the API and Selenium Tests:
 *   Codacy Dashboard for API Review - <https://app.codacy.com/manual/RajeevanVJ96/pokeTeamApi/dashboard?bid=14198575>
 
 *   Codacy Dashboard for Front End Review - <https://app.codacy.com/manual/RajeevanVJ96/SoloProject/dashboard?bid=14347923>
@@ -67,15 +66,17 @@ the quality of the code. The code coverage can be found in [here](Documentation/
 ## Deployment
 ![CI](/Documentation/CI.png)
 
-The building and deployment process was automated using Jenkins which is set up to run on Google Cloud Platform virtual machine. Jenkins is scripted to clone down the developer branch of the source git repo every minute while operational and copy the project into external directory to then be hosted by an Apache2 web server also running on the same instance as shown by [here](Documentation/jenkins%20build%201.PNG) and [here](Documentation/scriptj.PNG). The API to communicate data between the web pages and the database is controlled by a Spring boot application ran by Maven.
-This is run on a separate instance to allow for easy upgrades and loose coupling. Screenshots of the jenkins build can be found [here](Documentation/jenkins%20build%201.PNG) and [here](Documentation/scriptj.PNG). 
+The building and deployment process was automated using Jenkins which is set up to run on Google Cloud Platform virtual machine. Jenkins was scripted to clone down the developer branch of the source git repo every minute while operational and copy the project into external directory to then be hosted by an Apache2 web server also running on the same instance. The API to communicate data between the web pages and the database is controlled by a Spring boot application ran by Maven.
+This is run on a separate instance to allow for easy upgrades and loose coupling. Before deployment onto the web server, the front end and api were tested offline on localhost before being pushed up. Postman was also used to test api call requests before they were implemented into the JavaScript. Screenshots of the jenkins build can be found [here](Documentation/jenkins%20build%201.PNG) and [here](Documentation/scriptj.PNG). 
 <a name="tech"></a>
 ### Technologies Used
 
 *   MySQL Database Engine - Database
 *   Java - API Logic
 *   JavaScript - Front End Logic
+*   Draw.io - Wireframes and ERDs
 *   HTML, CSS, Bootstrap Studio - Front End Design
+*   Postman - API call tests
 *   Apache2 - Deployment
 *   Jenkins - CI Server
 *   Maven - Dependency Management
