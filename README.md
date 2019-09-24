@@ -55,13 +55,13 @@ to include more teams is available.
 
 Testing of the project consisted of Mockito for the API, Selenium Tests for the front end website and Codacy was used to check
 the quality of the code. The code coverage for the API can be found [here](Documentation/api%20test%20coverage.PNG) along with the selenium test report [here](Documentation/report.png). Below are links to the codacy dashboards, repositories of the API and Selenium Tests:
-*   Codacy Dashboard for API Review - <https://app.codacy.com/manual/RajeevanVJ96/pokeTeamApi/dashboard?bid=14198575>
+*   [Codacy Dashboard for API Review](https://app.codacy.com/manual/RajeevanVJ96/pokeTeamApi/dashboard?bid=14198575)
 
-*   Codacy Dashboard for Front End Review - <https://app.codacy.com/manual/RajeevanVJ96/SoloProject/dashboard?bid=14347923>
+*   [Codacy Dashboard for Front End Review](https://app.codacy.com/manual/RajeevanVJ96/SoloProject/dashboard?bid=14347923)
 
-*   Github repository for API - <https://github.com/RajeevanVJ96/pokeTeamApi>
+*   [Github repository for API](https://github.com/RajeevanVJ96/pokeTeamApi)
 
-*   Github repository for Selenium Tests - <https://github.com/RajeevanVJ96/SeleniumProjectTests>
+*   [Github repository for Selenium Tests](https://github.com/RajeevanVJ96/SeleniumProjectTests)
 <a name="depl"></a>
 ## Deployment
 ![CI](/Documentation/CI.png)
@@ -80,8 +80,8 @@ This is run on a separate instance to allow for easy upgrades and loose coupling
 *   Apache2 - Deployment
 *   Jenkins - CI Server
 *   Maven - Dependency Management
-*   [Git]: <https://github.com/RajeevanVJ96/SoloProject.git> - VCS
-*   [Trello]<https://trello.com/b/DJTCtsWw/team-manager> - Project Tracking
+*   [Git](https://github.com/RajeevanVJ96/SoloProject.git) - VCS
+*   [Trello](https://trello.com/b/DJTCtsWw/team-manager) - Project Tracking
 *   GCP - Live Environment
 
 <a name="FE"></a>
