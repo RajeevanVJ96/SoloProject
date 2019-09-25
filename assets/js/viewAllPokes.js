@@ -1,8 +1,34 @@
 const req = new XMLHttpRequest();
 let data;
+let teamdata;
 let tBody = document.getElementById("tableBody");
 const apiLink = "http://35.235.50.146:9000/pokemon";
+const teamApiLink = "http://35.235.50.146:9000/pokemonteam";
 let currentpoke = {};
+let teamids = [];
+
+
+
+/*
+This method is used to get the ids of all pokemon currently in the team which will then be used to exclude them from the total list of pokemon.
+ */
+
+function getTeamIds() {
+
+    req.onload = () => {
+        teamdata = JSON.parse(req.response);
+        console.log(teamdata);
+        for (let i = 0; i < 7; i++) {
+            teamids.push(teamdata[0]["pokemon"][i]["id"]);
+        }
+    };
+    req.open("GET", teamApiLink, false);
+    req.send();
+    return false;
+}
+
+
+
 
 
 /*
@@ -28,17 +54,22 @@ member of the pokemon object are passed in as parameters to the function above t
  */
 
 function populate(){
-
     req.onload = () => {
         data = JSON.parse(req.response);
-
+        getTeamIds();
+        console.log(teamids);
         for(let i = 0; i < data.length; i++){
             let temps = data[i];
-            let delBtn = `<button class="btn btn-primary" onclick="delPoke(${temps["id"]})">Release</button>`;
-            let editBtn = `<button class="btn btn-primary" data-toggle="modal" data-target="#editModal" onclick="editPoke(${temps["id"]})">Edit</button>`;
-            let viewBtn = `<button class="btn btn-primary" onclick="viewPoke(${temps["pid"]})">View</button>`;
-            let addToTeam = `<button class="btn btn-primary" onclick="addToTeam(${temps["id"]})">Add to Team</button>`;
-            newRows(tBody,temps["id"],temps["name"],temps["pid"],temps["m1"], temps["m2"], temps["m3"], temps["m4"], delBtn, editBtn, viewBtn, addToTeam );
+            if(!teamids.includes(temps["id"])) {
+                let delBtn = `<button class="btn btn-primary" onclick="delPoke(${temps["id"]})">Release</button>`;
+                let editBtn = `<button class="btn btn-primary" data-toggle="modal" data-target="#editModal" onclick="editPoke(${temps["id"]})">Edit</button>`;
+                let viewBtn = `<button class="btn btn-primary" onclick="viewPoke(${temps["pid"]})">View</button>`;
+                let addToTeam = `<button class="btn btn-primary" onclick="addToTeam(${temps["id"]})">Add to Team</button>`;
+                newRows(tBody, temps["id"], temps["name"], temps["pid"], temps["m1"], temps["m2"], temps["m3"], temps["m4"], delBtn, editBtn, viewBtn, addToTeam);
+            }else{
+                continue;
+            }
+
         }
     };
     req.open("GET", apiLink, false);

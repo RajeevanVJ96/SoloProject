@@ -63,7 +63,7 @@ function getInitialPoke(){
 
 
 /*
-When the page loads, the initalPoke function is ran in order to populate the index page with the current team roster found in the PokeTeam obj. The ids of these pokemon are passed
+When the page loads, the initialPoke function is ran in order to populate the index page with the current team roster found in the PokeTeam obj. The ids of these pokemon are passed
 into the ids array which is then iterated through. For each ID the getpokemon method is called to get its name and pid so they can be used to populate a section in the index.
  */
 
